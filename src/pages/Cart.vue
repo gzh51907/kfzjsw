@@ -98,6 +98,7 @@ export default {
   }
 };
 </script>
+<<<<<<< HEAD
 <style lang="scss" scoped>
 .page-cart {
   padding: .2rem;
@@ -142,3 +143,7 @@ header {
   }
 }
 </style>
+=======
+<style scoped>
+</style>
+>>>>>>> yd
