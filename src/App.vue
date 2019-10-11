@@ -8,8 +8,8 @@
         v-if="this.$route.path=='/home'| this.$route.path=='/book'|  this.$route.path=='/paimai'"
       >
         <el-col :span="4" v-for="item in menus" :key="item.name">
-          <router-link :to="item.path" active-class="current">
-            <div class="grid-content bg-purple">
+          <router-link :to="item.path" active-class="current" style="text-decoration: none;">
+            <div class="nav">
               <i :class="item.icon"></i>
               {{item.text}}
             </div>
@@ -31,7 +31,7 @@ export default {
           name: "home",
           path: "/home",
           text: "首页",
-          icon: "el-icon-s-home"
+          icon: "el-icon-house"
         },
         {
           name: "book",
@@ -63,7 +63,7 @@ export default {
   components: {}
 };
 </script>
-
+sty
 <style >
 * {
   padding: 0;
@@ -72,6 +72,9 @@ export default {
 }
 a {
   text-decoration: none;
+}
+.el-col a{
+  color: #555;
 }
 #start {
   position: fixed;
@@ -84,18 +87,22 @@ a {
   background-color: #fff;
   display: flex;
   justify-content: space-around;
-  justify-content: space-between;
+  align-items: center;
 }
-.current {
-  color: #fe846b;
+.current i{
+  color: #C21B29;
   font-weight: bold;
 }
-.grid-content {
+.current .nav{
+  color: #C21B29;
+}
+.nav {
   display: flex;
   flex-direction: column;
+  font-size: .16rem;
 }
-.grid-content i {
-  font-size: .266667rem;
+.nav i {
+  font-size: .346667rem;
 }
 .el-tabs__nav .el-tabs__item {
   padding: 0 .133333rem;
