@@ -296,6 +296,8 @@ export default {
       .num {
         height: 0.333333rem;
         padding: 0.066667rem 0 0 0.2rem;
+        font-size: .16rem;
+        color: #999;
       }
       .img_box {
         width: 1.066667rem;
@@ -334,6 +336,7 @@ export default {
         height: 0.266667rem;
         margin-top: 0.133333rem;
         color: #999;
+        font-size: .16rem;
       }
       .img_box {
         width: 0.906667rem;
@@ -422,6 +425,9 @@ export default {
         align-items: center;
         margin-top: 0.066667rem;
         box-sizing: border-box;
+        .time{
+          font-size: .16rem;
+        }
         span {
           font-size: 0.16rem;
           color: #666;

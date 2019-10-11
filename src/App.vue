@@ -5,7 +5,7 @@
         :gutter="20"
         id="start"
         style="margin:0"
-        v-if="this.$route.path=='/home'|this.$route.path=='/mine'| this.$route.path=='/book'| this.$route.path=='/cart' | this.$route.path=='/paimai'"
+        v-if="this.$route.path=='/home'| this.$route.path=='/book'|  this.$route.path=='/paimai'"
       >
         <el-col :span="4" v-for="item in menus" :key="item.name">
           <router-link :to="item.path" active-class="current">
