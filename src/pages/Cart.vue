@@ -5,7 +5,4 @@
 export default {};
 </script>
 <style scoped>
-.fkfkf {
-  width:;
-}
 </style>
