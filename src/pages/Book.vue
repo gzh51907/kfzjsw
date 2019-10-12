@@ -27,7 +27,7 @@
         </div>
         <!-- module-three -->
         <div style="display:flex;justify-content:space-around;padding: 0 .2rem;flex-wrap: wrap;">
-          <div v-for="item in module" class="linnebox" :key="item.teler">
+          <div v-for="item in moduless" class="linnebox" :key="item.teler">
             <p class="telercla">{{item.teler}}</p>
             <p class="zuozcla">{{item.zuoz}}</p>
             <img :src="item.imgsrc1" alt style="width:1.8rem; border-radius: .066667rem;" />
@@ -151,11 +151,11 @@
                      </div>
                      <div style="margin:.13rem 0;">
                        <ul style="display: flex;justify-content:space-between;">
-                         <li v-for="item in ele.storyshoplist" :key="item.title">
+                         <li v-for="item in storyshoplist" :key="item.title">
                            <img :src="item.imgsrc" alt style="width:1.37rem;height:1.37rem;margin-right:.133333rem;border-radius: .066667rem" />
                           <p
                         style="width:1.37rem;overflow: hidden;white-space:nowrap;overflow: hidden;font-size: .18rem;color: #262626;margin-top:.04rem"
-                      >{{item.title}}</p> 
+                      >{{item.title}}</p> </li></ul>
                   <ul style=" display: flex;justify-content:space-around;flex-wrap:wrap">
                     <li v-for="ele in item.divgood" style="width:1.4rem" :key="ele.title">
                       <img :src="ele.imgsrc" alt style="width:1.4rem;height:1.4rem" />
@@ -217,7 +217,7 @@ export default {
           text: "新书广场"
         }
       ],
-      module: [
+      moduless: [
         {
           teler: "博尔赫斯",
           zuoz: "作家们的作家",
