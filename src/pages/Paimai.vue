@@ -80,12 +80,46 @@
                <i class="el-icon-arrow-right"></i>
             </div>
         </div>
+        <div class="area_box" v-for="item in data" :key="item.name">
+            <div class="title">
+                <div class="name">
+                  <span>{{item.name}}</span>
+                  <span class="num">{{item.number}}</span>
+                </div>
+                <span>全部 ></span>
+            </div>
+            <div class="area_list" v-for="val in item.content" :key="val.name">
+                  <div class="left">
+                      <img :src="val.imgurl" alt="">
+                  </div>
+                  <div class="right">
+                      <div class="txt"> 
+                          <span class="red">{{val.leixing}}</span>
+                          {{val.title}}
+                      </div>
+                      <div class="price_box"> 
+                          <div class="price_box_left">当前价 ¥
+                              <span class="f_34">{{val.dqjia}}</span>
+                          </div> 
+                          <div class="price_box_right">{{val.chujiacishu}}</div> 
+                      </div>
+                      <div class="bottom_box"> 
+                          <div class="bottom_box_left">{{val.qpjia}}</div> 
+                          <div class="bottom_box_right">剩余 
+                              <span class="">{{val.time}}</span>
+                          </div> 
+                      </div>
+                  </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
+import data from "../data/paimai.json";
 export default {
   data() {
     return {
+      data,
       bannerimg: ["pm-banner1.png", "pm-banner2.png", "pm-banner3.jpg"],
       nav: [
         {
@@ -256,7 +290,7 @@ export default {
   width: 100%;
   height: 0.933333rem;
   display: flex;
-    margin-bottom: 0.266667rem;
+  margin-bottom: 0.266667rem;
   div {
     width: 20%;
     height: 100%;
@@ -296,7 +330,7 @@ export default {
       .num {
         height: 0.333333rem;
         padding: 0.066667rem 0 0 0.2rem;
-        font-size: .16rem;
+        font-size: 0.16rem;
         color: #999;
       }
       .img_box {
@@ -336,7 +370,7 @@ export default {
         height: 0.266667rem;
         margin-top: 0.133333rem;
         color: #999;
-        font-size: .16rem;
+        font-size: 0.16rem;
       }
       .img_box {
         width: 0.906667rem;
@@ -390,17 +424,17 @@ export default {
 }
 .tuijian {
   width: 100%;
-  height: 2.84rem;
+  height: 2.933333rem;
   display: flex;
   overflow: auto;
+  box-sizing: border-box;
   .list {
     width: 2.773333rem;
     height: 2.84rem;
     margin-left: 0.133333rem;
-    border-radius: 5px;
-    box-shadow: #eee .026667rem .026667rem .053333rem .053333rem,#eee -.026667rem -.026667rem .053333rem .053333rem;
+    border-radius: 0.066667rem;
+    box-sizing: border-box;
     .image {
-    border-radius: .066667rem;
       width: 2.773333rem;
       height: 1.626667rem;
     }
@@ -419,19 +453,87 @@ export default {
         margin-top: 0.066667rem;
       }
       .bottom {
-          height: .2rem;
+        height: 0.2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-top: 0.066667rem;
         box-sizing: border-box;
-        .time{
-          font-size: .16rem;
+        .time {
+          font-size: 0.16rem;
         }
         span {
           font-size: 0.16rem;
           color: #666;
         }
+      }
+    }
+  }
+}
+.area_box {
+  width: 100%;
+  height: 6.986667rem;
+  padding: 0 0.2rem;
+  margin-bottom: 0.266667rem;
+  .title {
+    height: 0.32rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.266667rem;
+    .name {
+      span {
+        font-size: 0.213333rem;
+      }
+      .num {
+        font-size: 0.186667rem;
+        color: #999;
+        margin-left: 0.133333rem;
+      }
+    }
+    span {
+      font-size: 0.186667rem;
+    }
+  }
+  .area_list {
+    height: 1.306667rem;
+    margin-bottom: 0.32rem;
+    display: flex;
+    .left {
+      width: 1.306667rem;
+      height: 1.306667rem;
+      img {
+        width: 1.306667rem;
+        height: 1.306667rem;
+      }
+    }
+    .right {
+      width: 3rem;
+      height: 1.306667rem;
+      margin-left: 0.2rem;
+      .txt {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        margin-bottom: 0.266667rem;
+        font-size: 0.186667rem;
+        .red {
+          color: #c21b29;
+        }
+      }
+      .price_box {
+        display: flex;
+        justify-content: space-between;
+        .price_box_left {
+          color: #c21b29;
+          .f_34 {
+            font-size: 0.226667rem;
+          }
+        }
+      }
+      .bottom_box {
+        display: flex;
+        justify-content: space-between;
       }
     }
   }

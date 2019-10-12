@@ -11,6 +11,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios';
 Vue.prototype.$axios = axios;
 Vue.use(ElementUI);
+import Vant from 'vant';
+import 'vant/lib/index.css';
+Vue.use(Vant);
 
 
 new Vue({
