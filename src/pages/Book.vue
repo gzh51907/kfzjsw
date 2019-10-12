@@ -120,7 +120,7 @@
           <div data-v-21efc5e6 class="line"></div>
         </div>
         <!-- 书店推荐 -->
-        <div style="margin-bottom:150px">
+        <!-- <div style="margin-bottom:150px">
           <div data-v-21efc5e6 style="margin-bottom: 0.133333rem;">
             <div data-v-21efc5e6 class="mjprefecture">
               <h4 data-v-21efc5e6 style="font-weight: 600;">书店推荐</h4>
@@ -152,24 +152,27 @@
                      <div style="margin:.13rem 0;">
                        <ul style="display: flex;justify-content:space-between;">
                          <li v-for="item in ele.storyshoplist" :key="item.title">
-                           <img :src="item.imgsrc" alt style="width:1.37rem;height:1.37rem;margin-right:.133333rem;border-radius: .066667rem" />
-                          <p
-                        style="width:1.37rem;overflow: hidden;white-space:nowrap;overflow: hidden;font-size: .18rem;color: #262626;margin-top:.04rem"
-                      >{{item.title}}</p> 
-                  <ul style=" display: flex;justify-content:space-around;flex-wrap:wrap">
-                    <li v-for="ele in item.divgood" style="width:1.4rem" :key="ele.title">
-                      <img :src="ele.imgsrc" alt style="width:1.4rem;height:1.4rem" />
-                      <p
-                        style="height:.52rem;overflow: hidden;font-size: .2rem;color: #262626;margin-top:.04rem"
-                      >{{ele.title}}</p>
-                      <div style="margin:.05rem 0;font-size:.22rem;color:#9e100e">
-                        <span>￥</span>
-                        <span>{{item.price}}</span>
-                      </div>
-                      </li>
-                       </ul>
-                     </div>
-                     
+                            <div>
+                              <img :src="item.imgsrc" alt style="width:1.37rem;height:1.37rem;margin-right:.133333rem;border-radius: .066667rem;" />
+                              <p
+                            style="width:1.37rem;overflow: hidden;white-space:nowrap;overflow: hidden;font-size: .18rem;color: #262626;margin-top:.04rem;"
+                          >{{item.title}}</p>
+                          </div>
+                          </li></ul>
+                          <div style=" display: flex;justify-content:space-around;flex-wrap:wrap;">
+                            <div v-for="ele in item.divgood" style="width:1.4rem" :key="ele.title">
+                              <img :src="ele.imgsrc" alt style="width:1.4rem;height:1.4rem;" />
+                              <p
+                                style="height:.52rem;overflow: hidden;font-size: .2rem;color: #262626;margin-top:.04rem"
+                              >{{ele.title}}</p>
+                              <div style="margin:.05rem 0;font-size:.22rem;color:#9e100e">
+                                <span>￥</span>
+                                <span>{{item.price}}</span>
+                              </div>
+                              </div>
+                          </div>
+                        </div>
+                        
                     </li>
                   </ul>
                 </div>
@@ -177,10 +180,72 @@
             </el-tabs>
             <div style="width:100%;height: .293333rem;"></div>
           </div>
-         
           <div data-v-21efc5e6="" class="line"></div>
+        </div> -->
+        <div style="margin-bottom:150px">
+        <div data-v-21efc5e6 style="margin-bottom: 0.133333rem;">
+            <div data-v-21efc5e6 class="mjprefecture">
+                <h4 data-v-21efc5e6 style="font-weight: 600;">书店推荐</h4>
+            </div>
         </div>
-        <!--  -->
+        <div style="margin:0 .2rem;color:#999" class="teselis">
+            <el-tabs v-model="bookliName" @tab-click="booksnaClick">
+                <el-tab-pane :label="item.tele" :name="item.tele" v-for="item in booklistnav" :key="item.tele">
+                    <div>
+                        <ul style>
+                            <li v-for="ele in item.divgood" :key="ele.imgsrc"
+                                style="background:#fafafa;padding:.266667rem .133333rem .133333rem .133333rem;margin-bottom:.133333rem;">
+                                <div style="display: flex;justify-content:space-between;">
+                                    <div style="display: flex;">
+                                        <img :src="ele.imgsrc" alt
+                                            style="width:.6rem;height:.6rem;margin-right:.133333rem" />
+                                        <div>
+                                            <span style="font-size:.213333rem;color:#000">{{ele.title}}</span><span
+                                                :class="ele.classicon"
+                                                style="display:inline-block;width:.96667rem;height: 0.16rem;"></span>
+                                            <p style="margin:.05rem 0;">{{ele.pinglvtext}}</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button
+                                            style="color:#9e100e;background: #fff;border: 1px solid #e5e5e5;width:.8rem;height:.333333rem;border-radius: .08rem">进店</button>
+                                    </div>
+                                </div>
+                                <div style="margin:.13rem 0;">
+                                    <ul style="display: flex;justify-content:space-between;">
+                                        <li v-for="item in ele.storyshoplist" :key="item.imgsrc">
+                                            <div>
+                                                <img :src="item.imgsrc" alt
+                                                    style="width:1.37rem;height:1.37rem;margin-right:.133333rem;border-radius: .066667rem;" />
+                                                <p
+                                                    style="width:1.37rem;overflow: hidden;white-space:nowrap;overflow: hidden;font-size: .18rem;color: #262626;margin-top:.04rem;">
+                                                    {{item.title}}</p>
+                                            </div>
+                                            <ul style=" display: flex;justify-content:space-around;flex-wrap:wrap;">
+                                                <li v-for="ele in item.divgood" style="width:1.4rem" :key="ele.imgsrc">
+                                                    <img :src="ele.imgsrc" alt style="width:1.4rem;height:1.4rem;" />
+                                                    <p
+                                                        style="height:.52rem;overflow: hidden;font-size: .2rem;color: #262626;margin-top:.04rem">
+                                                        {{ele.title}}</p>
+                                                    <div style="margin:.05rem 0;font-size:.22rem;color:#9e100e">
+                                                        <span>￥</span>
+                                                        <span>{{item.price}}</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </el-tab-pane>
+            </el-tabs>
+            <div style="width:100%;height: .293333rem;"></div>
+        </div>
+        <div data-v-21efc5e6="" class="line"></div>
+    </div>
+
       </div>
     </div>
   </div>
