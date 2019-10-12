@@ -27,7 +27,7 @@
         </div>
         <!-- module-three -->
         <div style="display:flex;justify-content:space-around;padding: 0 .2rem;flex-wrap: wrap;">
-          <div v-for="item in module" class="linnebox" :key="item.teler">
+          <div v-for="item in moduless" class="linnebox" :key="item.teler">
             <p class="telercla">{{item.teler}}</p>
             <p class="zuozcla">{{item.zuoz}}</p>
             <img :src="item.imgsrc1" alt style="width:1.8rem; border-radius: .066667rem;" />
@@ -151,6 +151,7 @@
                      </div>
                      <div style="margin:.13rem 0;">
                        <ul style="display: flex;justify-content:space-between;">
+<<<<<<< HEAD
                          <li v-for="item in ele.storyshoplist" :key="item.title">
                             <div>
                               <img :src="item.imgsrc" alt style="width:1.37rem;height:1.37rem;margin-right:.133333rem;border-radius: .066667rem;" />
@@ -173,6 +174,27 @@
                           </div>
                         </div>
                         
+=======
+                         <li v-for="item in storyshoplist" :key="item.title">
+                           <img :src="item.imgsrc" alt style="width:1.37rem;height:1.37rem;margin-right:.133333rem;border-radius: .066667rem" />
+                          <p
+                        style="width:1.37rem;overflow: hidden;white-space:nowrap;overflow: hidden;font-size: .18rem;color: #262626;margin-top:.04rem"
+                      >{{item.title}}</p> </li></ul>
+                  <ul style=" display: flex;justify-content:space-around;flex-wrap:wrap">
+                    <li v-for="ele in item.divgood" style="width:1.4rem" :key="ele.title">
+                      <img :src="ele.imgsrc" alt style="width:1.4rem;height:1.4rem" />
+                      <p
+                        style="height:.52rem;overflow: hidden;font-size: .2rem;color: #262626;margin-top:.04rem"
+                      >{{ele.title}}</p>
+                      <div style="margin:.05rem 0;font-size:.22rem;color:#9e100e">
+                        <span>￥</span>
+                        <span>{{item.price}}</span>
+                      </div>
+                      </li>
+                       </ul>
+                     </div>
+                     
+>>>>>>> 3431b7286f3a495d7dc54f67784393f158037102
                     </li>
                   </ul>
                 </div>
@@ -193,7 +215,7 @@
                 <el-tab-pane :label="item.tele" :name="item.tele" v-for="item in booklistnav" :key="item.tele">
                     <div>
                         <ul style>
-                            <li v-for="ele in item.divgood" :key="ele.imgsrc"
+                            <li v-for="ele in item.divgood"
                                 style="background:#fafafa;padding:.266667rem .133333rem .133333rem .133333rem;margin-bottom:.133333rem;">
                                 <div style="display: flex;justify-content:space-between;">
                                     <div style="display: flex;">
@@ -213,7 +235,7 @@
                                 </div>
                                 <div style="margin:.13rem 0;">
                                     <ul style="display: flex;justify-content:space-between;">
-                                        <li v-for="item in ele.storyshoplist" :key="item.imgsrc">
+                                        <li v-for="item in ele.storyshoplist">
                                             <div>
                                                 <img :src="item.imgsrc" alt
                                                     style="width:1.37rem;height:1.37rem;margin-right:.133333rem;border-radius: .066667rem;" />
@@ -222,7 +244,7 @@
                                                     {{item.title}}</p>
                                             </div>
                                             <ul style=" display: flex;justify-content:space-around;flex-wrap:wrap;">
-                                                <li v-for="ele in item.divgood" style="width:1.4rem" :key="ele.imgsrc">
+                                                <li v-for="ele in item.divgood" style="width:1.4rem">
                                                     <img :src="ele.imgsrc" alt style="width:1.4rem;height:1.4rem;" />
                                                     <p
                                                         style="height:.52rem;overflow: hidden;font-size: .2rem;color: #262626;margin-top:.04rem">
@@ -282,7 +304,7 @@ export default {
           text: "新书广场"
         }
       ],
-      module: [
+      moduless: [
         {
           teler: "博尔赫斯",
           zuoz: "作家们的作家",
