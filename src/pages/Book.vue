@@ -13,7 +13,7 @@
         </el-carousel>
         <!-- fenlei -->
         <div class="innernav">
-          <div v-for="item in innernav">
+          <div v-for="item in innernav" :key="item.text">
             <img :src="require(`../assets/bookstore/${item.icon}`)" alt />
             {{item.text}}
           </div>
@@ -27,13 +27,13 @@
         </div>
         <!-- module-three -->
         <div style="display:flex;justify-content:space-around;padding: 0 .2rem;flex-wrap: wrap;">
-          <div v-for="item in module" class="linnebox">
+          <div v-for="item in module" class="linnebox" :key="item.teler">
             <p class="telercla">{{item.teler}}</p>
             <p class="zuozcla">{{item.zuoz}}</p>
             <img :src="item.imgsrc1" alt style="width:1.8rem; border-radius: .066667rem;" />
           </div>
           <div>
-            <div v-for="item in moduleone" class="linnebox">
+            <div v-for="item in moduleone" class="linnebox" :key="item.teler">
               <div style="float:left;">
                 <p class="telercla">{{item.teler}}</p>
                 <p class="zuozcla">{{item.zuoz}}</p>
@@ -42,7 +42,7 @@
             </div>
           </div>
           <div style="display:flex;justify-content:space-around;flex-wrap: wrap;">
-            <div v-for="item in moduletow" class="linnebox">
+            <div v-for="item in moduletow" class="linnebox" :key="item.title">
               <div style="float:left;">
                 <p class="telercla">{{item.title}}</p>
                 <p class="zuozcla">{{item.action}}</p>
@@ -70,7 +70,7 @@
             >
               <div>
                 <ul style=" display: flex;justify-content:space-around;flex-wrap:wrap">
-                  <li v-for="ele in item.divgood" style="width:1.4rem">
+                  <li v-for="ele in item.divgood" style="width:1.4rem" :key="ele.title">
                     <img :src="ele.imgsrc" alt style="width:1.4rem;height:1.4rem" />
                     <p
                       style="height:.52rem;overflow: hidden;font-size: .2rem;color: #262626;margin-top:.04rem"
@@ -107,7 +107,7 @@
             >
               <li
                 style="margin: 0px 0.13rem 0 0; border: 0.013333rem solid rgb(204, 204, 204);"
-                v-for="item in shudan"
+                v-for="item in shudan" :key="item.title"
               >
                 <img data-v-5a90ec03 :src="item.imgsrc" style class="shudanimg" />
                 <div data-v-5a90ec03 style="min-width: 140px;">
@@ -136,7 +136,7 @@
               >
                 <div>
                   <ul style=" display: flex;justify-content:space-around;flex-wrap:wrap">
-                    <li v-for="ele in item.divgood" style="width:1.4rem">
+                    <li v-for="ele in item.divgood" style="width:1.4rem" :key="ele.title">
                       <img :src="ele.imgsrc" alt style="width:1.4rem;height:1.4rem" />
                       <p
                         style="height:.52rem;overflow: hidden;font-size: .2rem;color: #262626;margin-top:.04rem"
