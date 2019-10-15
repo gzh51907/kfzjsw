@@ -15,6 +15,7 @@ import Mine from '../pages/Mine.vue';
 import Book from '../pages/Book.vue';
 import Reg from '../pages/Reg.vue';
 import Login from '../pages/Login.vue';
+import Fenlei from '../pages/shouye/Fenlei.vue';
 
 // 3. 实例化router并配置参数
 let router = new VueRouter({
@@ -57,6 +58,10 @@ let router = new VueRouter({
             name: 'reg',
             path: '/reg',
             component: Reg
+        }, {
+            name: 'fenlei',
+            path: '/fenlei',
+            component: Fenlei
         }
     ]
 });
