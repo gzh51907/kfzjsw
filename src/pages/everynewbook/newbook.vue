@@ -781,6 +781,10 @@ export default {
         }
       }
     }
+  },
+  async created() {
+    let data = await this.$axios.get("http://127.0.0.1:1906/goods/");
+    console.log(data);
   }
 };
 </script>
