@@ -1,0 +1,543 @@
+[
+    {
+        "name1": "特色",
+        "value": "specialCatList",
+        "order": 1,
+        "lists": [
+            {   "count1": "特色",
+                "count": "281385",
+                "term": "8000000000000000",
+                "name": "线装古籍",
+                "hasleaf": 1,
+                "shortcatid": "8",
+                "pinyin": "xianzhuang",
+                "img": "//res2.kongfz.com/mobile/images/cate/xianzhuang.png"
+            },
+            {
+                "count": "445484",
+                "term": "9000000000000000",
+                "name": "民国旧书",
+                "hasleaf": 1,
+                "shortcatid": "9",
+                "pinyin": "minguo",
+                "img": "//res2.kongfz.com/mobile/images/cate/minguo.png"
+            },
+            {
+                "count": "292927",
+                "term": "21000000000000000",
+                "name": "名人墨迹",
+                "hasleaf": 1,
+                "shortcatid": "21",
+                "pinyin": "moji",
+                "img": "//res2.kongfz.com/mobile/images/cate/moji.png"
+            },
+            {
+                "count": "523277",
+                "term": "37000000000000000",
+                "name": "名人字画",
+                "hasleaf": 1,
+                "shortcatid": "37",
+                "pinyin": "zihua",
+                "img": "//res2.kongfz.com/mobile/images/cate/zihua.png"
+            },
+            {
+                "count": "1997055",
+                "term": "10000000000000000",
+                "name": "期刊",
+                "hasleaf": 1,
+                "shortcatid": "10",
+                "pinyin": "qikan",
+                "img": "//res2.kongfz.com/mobile/images/cate/qikan.png"
+            },
+            {
+                "count": "726061",
+                "term": "41000000000000000",
+                "name": "报纸",
+                "hasleaf": 1,
+                "shortcatid": "41",
+                "pinyin": "baozhi",
+                "img": "//res2.kongfz.com/mobile/images/cate/baozhi.png"
+            },
+            {
+                "count": "1599958",
+                "term": "6000000000000000",
+                "name": "外文原版",
+                "hasleaf": 1,
+                "shortcatid": "6",
+                "pinyin": "waiwenshu",
+                "img": "//res2.kongfz.com/mobile/images/cate/waiwenshu.png"
+            }
+        ]
+    },
+    {
+        "name1": "图书",
+        "value": "bookCatList",
+        "order": 2,
+        "lists": [
+            {   "count1": "图书",
+                "count": "5428339",
+                "term": "43000000000000000",
+                "name": "小说",
+                "hasleaf": 0,
+                "shortcatid": "43",
+                "pinyin": "xiaoshuo",
+                "img": "//res2.kongfz.com/mobile/images/cate/xiaoshuo.png"
+            },
+            {
+                "count": "21327631",
+                "term": "1000000000000000",
+                "name": "文学",
+                "hasleaf": 0,
+                "shortcatid": "1",
+                "pinyin": "wenxue",
+                "img": "//res2.kongfz.com/mobile/images/cate/wenxue.png"
+            },
+            {
+                "count": "2283591",
+                "term": "13000000000000000",
+                "name": "语言文字",
+                "hasleaf": 0,
+                "shortcatid": "13",
+                "pinyin": "yuyan",
+                "img": "//res2.kongfz.com/mobile/images/cate/yuyan.png"
+            },
+            {
+                "count": "6223815",
+                "term": "3000000000000000",
+                "name": "历史",
+                "hasleaf": 0,
+                "shortcatid": "3",
+                "pinyin": "lishi",
+                "img": "//res2.kongfz.com/mobile/images/cate/lishi.png"
+            },
+            {
+                "count": "385073",
+                "term": "23000000000000000",
+                "name": "地理",
+                "hasleaf": 0,
+                "shortcatid": "23",
+                "pinyin": "dili",
+                "img": "//res2.kongfz.com/mobile/images/cate/dili.png"
+            },
+            {
+                "count": "7656150",
+                "term": "4000000000000000",
+                "name": "艺术",
+                "hasleaf": 0,
+                "shortcatid": "4",
+                "pinyin": "yishu",
+                "img": "//res2.kongfz.com/mobile/images/cate/yishu.png"
+            },
+            {
+                "count": "1339331",
+                "term": "18000000000000000",
+                "name": "政治",
+                "hasleaf": 0,
+                "shortcatid": "18",
+                "pinyin": "zhengzhi",
+                "img": "//res2.kongfz.com/mobile/images/cate/zhengzhi.png"
+            },
+            {
+                "count": "1162439",
+                "term": "5000000000000000",
+                "name": "法律",
+                "hasleaf": 0,
+                "shortcatid": "5",
+                "pinyin": "falv",
+                "img": "//res2.kongfz.com/mobile/images/cate/falv.png"
+            },
+            {
+                "count": "378771",
+                "term": "24000000000000000",
+                "name": "军事",
+                "hasleaf": 0,
+                "shortcatid": "24",
+                "pinyin": "junshi",
+                "img": "//res2.kongfz.com/mobile/images/cate/junshi.png"
+            },
+            {
+                "count": "3373104",
+                "term": "44000000000000000",
+                "name": "哲学心理学",
+                "hasleaf": 0,
+                "shortcatid": "44",
+                "pinyin": "zhexue",
+                "img": "//res2.kongfz.com/mobile/images/cate/zhexue.png"
+            },
+            {
+                "count": "439152",
+                "term": "29000000000000000",
+                "name": "宗教",
+                "hasleaf": 0,
+                "shortcatid": "29",
+                "pinyin": "zongjiao",
+                "img": "//res2.kongfz.com/mobile/images/cate/zongjiao.png"
+            },
+            {
+                "count": "3220070",
+                "term": "14000000000000000",
+                "name": "经济",
+                "hasleaf": 0,
+                "shortcatid": "14",
+                "pinyin": "jingji",
+                "img": "//res2.kongfz.com/mobile/images/cate/jingji.png"
+            },
+            {
+                "count": "5727147",
+                "term": "7000000000000000",
+                "name": "社会文化",
+                "hasleaf": 0,
+                "shortcatid": "7",
+                "pinyin": "shwh",
+                "img": "//res2.kongfz.com/mobile/images/cate/shwh.png"
+            },
+            {
+                "count": "1956789",
+                "term": "28000000000000000",
+                "name": "教育",
+                "hasleaf": 0,
+                "shortcatid": "28",
+                "pinyin": "jiaoyu",
+                "img": "//res2.kongfz.com/mobile/images/cate/jiaoyu.png"
+            },
+            {
+                "count": "2303870",
+                "term": "25000000000000000",
+                "name": "管理",
+                "hasleaf": 0,
+                "shortcatid": "25",
+                "pinyin": "guanli",
+                "img": "//res2.kongfz.com/mobile/images/cate/guanli.png"
+            },
+            {
+                "count": "5204437",
+                "term": "27000000000000000",
+                "name": "童书",
+                "hasleaf": 0,
+                "shortcatid": "27",
+                "pinyin": "shaoer",
+                "img": "//res2.kongfz.com/mobile/images/cate/shaoer.png"
+            },
+            {
+                "count": "4005205",
+                "term": "26000000000000000",
+                "name": "生活",
+                "hasleaf": 0,
+                "shortcatid": "26",
+                "pinyin": "shenghuo",
+                "img": "//res2.kongfz.com/mobile/images/cate/shenghuo.png"
+            },
+            {
+                "count": "776358",
+                "term": "19000000000000000",
+                "name": "体育",
+                "hasleaf": 0,
+                "shortcatid": "19",
+                "pinyin": "tiyu",
+                "img": "//res2.kongfz.com/mobile/images/cate/tiyu.png"
+            },
+            {
+                "count": "4518175",
+                "term": "11000000000000000",
+                "name": "工程技术",
+                "hasleaf": 0,
+                "shortcatid": "11",
+                "pinyin": "jishu",
+                "img": "//res2.kongfz.com/mobile/images/cate/jishu.png"
+            },
+            {
+                "count": "1427365",
+                "term": "31000000000000000",
+                "name": "计算机与互联网",
+                "hasleaf": 0,
+                "shortcatid": "31",
+                "pinyin": "jisuanji",
+                "img": "//res2.kongfz.com/mobile/images/cate/jisuanji.png"
+            },
+            {
+                "count": "2045509",
+                "term": "15000000000000000",
+                "name": "自然科学",
+                "hasleaf": 0,
+                "shortcatid": "15",
+                "pinyin": "kexue",
+                "img": "//res2.kongfz.com/mobile/images/cate/kexue.png"
+            },
+            {
+                "count": "2805187",
+                "term": "17000000000000000",
+                "name": "医药卫生",
+                "hasleaf": 0,
+                "shortcatid": "17",
+                "pinyin": "yiyao",
+                "img": "//res2.kongfz.com/mobile/images/cate/yiyao.png"
+            },
+            {
+                "count": "2751470",
+                "term": "20000000000000000",
+                "name": "综合性图书",
+                "hasleaf": 0,
+                "shortcatid": "20",
+                "pinyin": "zonghe",
+                "img": "//res2.kongfz.com/mobile/images/cate/zonghe.png"
+            },
+            {
+                "count": "10829207",
+                "term": "32000000000000000",
+                "name": "教材教辅考试",
+                "hasleaf": 1,
+                "shortcatid": "32",
+                "pinyin": "jiaocai",
+                "img": "//res2.kongfz.com/mobile/images/cate/jiaocai.png"
+            },
+            {
+                "count": "1273061",
+                "term": "12000000000000000",
+                "name": "国学古籍",
+                "hasleaf": 1,
+                "shortcatid": "12",
+                "pinyin": "guoxue",
+                "img": "//res2.kongfz.com/mobile/images/cate/guoxue.png"
+            },
+            {
+                "count": "331490",
+                "term": "59000000000000000",
+                "name": "收藏与鉴赏",
+                "hasleaf": 1,
+                "shortcatid": "59",
+                "pinyin": "scyjs",
+                "img": "//res2.kongfz.com/mobile/images/cate/scyjs.png"
+            },
+            {
+                "count": "755845",
+                "term": "34000000000000000",
+                "name": "红色文献",
+                "hasleaf": 1,
+                "shortcatid": "34",
+                "pinyin": "hswx",
+                "img": "//res2.kongfz.com/mobile/images/cate/hswx.png"
+            }
+        ]
+    },
+    {
+        "name1": "艺术收藏",
+        "value": "artCatList",
+        "order": 3,
+        "lists": [
+            {   "count1": "艺术收藏",
+                "count": "118323",
+                "term": "55000000000000000",
+                "name": "古旧地图",
+                "hasleaf": 1,
+                "shortcatid": "55",
+                "pinyin": "ditu",
+                "img": "//res2.kongfz.com/mobile/images/cate/ditu.png"
+            },
+            {
+                "count": "226939",
+                "term": "38000000000000000",
+                "name": "照片影像",
+                "hasleaf": 1,
+                "shortcatid": "38",
+                "pinyin": "zhaopian",
+                "img": "//res2.kongfz.com/mobile/images/cate/zhaopian.png"
+            },
+            {
+                "count": "1291033",
+                "term": "35000000000000000",
+                "name": "连环画",
+                "hasleaf": 1,
+                "shortcatid": "35",
+                "pinyin": "lianhuanhua",
+                "img": "//res2.kongfz.com/mobile/images/cate/lianhuanhua.png"
+            },
+            {
+                "count": "106899",
+                "term": "56000000000000000",
+                "name": "版画宣传画",
+                "hasleaf": 1,
+                "shortcatid": "56",
+                "pinyin": "banhua",
+                "img": "//res2.kongfz.com/mobile/images/cate/banhua.png"
+            },
+            {
+                "count": "374291",
+                "term": "36000000000000000",
+                "name": "邮票税票",
+                "hasleaf": 1,
+                "shortcatid": "36",
+                "pinyin": "youpiao",
+                "img": "//res2.kongfz.com/mobile/images/cate/youpiao.png"
+            },
+            {
+                "count": "114249",
+                "term": "46000000000000000",
+                "name": "钱币",
+                "hasleaf": 1,
+                "shortcatid": "46",
+                "pinyin": "qianbi",
+                "img": "//res2.kongfz.com/mobile/images/cate/qianbi.png"
+            },
+            {
+                "count": "37862",
+                "term": "57000000000000000",
+                "name": "碑帖印谱",
+                "hasleaf": 1,
+                "shortcatid": "57",
+                "pinyin": "beitieyinpu",
+                "img": "//res2.kongfz.com/mobile/images/cate/beitieyinpu.png"
+            },
+            {
+                "count": "68210",
+                "term": "61000000000000000",
+                "name": "文房雅玩",
+                "hasleaf": 1,
+                "shortcatid": "61",
+                "pinyin": "wfyw",
+                "img": "//res2.kongfz.com/mobile/images/cate/wfyw.png"
+            },
+            {
+                "count": "228357",
+                "term": "62000000000000000",
+                "name": "玉石金银木器",
+                "hasleaf": 1,
+                "shortcatid": "62",
+                "pinyin": "yushi",
+                "img": "//res2.kongfz.com/mobile/images/cate/yushi.png"
+            },
+            {
+                "count": "5234",
+                "term": "63000000000000000",
+                "name": "漆器",
+                "hasleaf": 1,
+                "shortcatid": "63",
+                "pinyin": "qiqi",
+                "img": "//res2.kongfz.com/mobile/images/cate/qiqi.png"
+            },
+            {
+                "count": "263748",
+                "term": "64000000000000000",
+                "name": "陶器瓷器",
+                "hasleaf": 1,
+                "shortcatid": "64",
+                "pinyin": "taoqiciqi",
+                "img": "//res2.kongfz.com/mobile/images/cate/taoqiciqi.png"
+            },
+            {
+                "count": "30197",
+                "term": "65000000000000000",
+                "name": "工艺品",
+                "hasleaf": 1,
+                "shortcatid": "65",
+                "pinyin": "gongyipin",
+                "img": "//res2.kongfz.com/mobile/images/cate/gongyipin.png"
+            },
+            {
+                "count": "70947",
+                "term": "60000000000000000",
+                "name": "红色收藏",
+                "hasleaf": 1,
+                "shortcatid": "60",
+                "pinyin": "hssc",
+                "img": "//res2.kongfz.com/mobile/images/cate/hssc.png"
+            },
+            {
+                "count": "1203833",
+                "term": "58000000000000000",
+                "name": "收藏杂项",
+                "hasleaf": 1,
+                "shortcatid": "58",
+                "pinyin": "zaxiang",
+                "img": "//res2.kongfz.com/mobile/images/cate/zaxiang.png"
+            }
+        ]
+    },
+    {
+        "name1": "文创周边",
+        "value": "wenchuangCatList",
+        "order": 4,
+        "lists": [
+            {   "count1": "文创周边",
+                "count": "1298",
+                "term": "66000000000000000",
+                "name": "笔墨",
+                "hasleaf": 1,
+                "shortcatid": "66",
+                "pinyin": "bimo",
+                "img": "//res2.kongfz.com/mobile/images/cate/bimo.png"
+            },
+            {
+                "count": "15033",
+                "term": "67000000000000000",
+                "name": "纸本",
+                "hasleaf": 1,
+                "shortcatid": "67",
+                "pinyin": "zhiben",
+                "img": "//res2.kongfz.com/mobile/images/cate/zhiben.png"
+            },
+            {
+                "count": "29340",
+                "term": "68000000000000000",
+                "name": "卡片",
+                "hasleaf": 1,
+                "shortcatid": "68",
+                "pinyin": "kapian",
+                "img": "//res2.kongfz.com/mobile/images/cate/kapian.png"
+            },
+            {
+                "count": "7133",
+                "term": "69000000000000000",
+                "name": "日历",
+                "hasleaf": 1,
+                "shortcatid": "69",
+                "pinyin": "rili",
+                "img": "//res2.kongfz.com/mobile/images/cate/rili.png"
+            },
+            {
+                "count": "998",
+                "term": "70000000000000000",
+                "name": "包袋",
+                "hasleaf": 1,
+                "shortcatid": "70",
+                "pinyin": "baodai",
+                "img": "//res2.kongfz.com/mobile/images/cate/baodai.png"
+            },
+            {
+                "count": "890",
+                "term": "71000000000000000",
+                "name": "壳套",
+                "hasleaf": 1,
+                "shortcatid": "71",
+                "pinyin": "ketao",
+                "img": "//res2.kongfz.com/mobile/images/cate/ketao.png"
+            },
+            {
+                "count": "59362",
+                "term": "72000000000000000",
+                "name": "摆件挂画",
+                "hasleaf": 1,
+                "shortcatid": "72",
+                "pinyin": "bjgh",
+                "img": "//res2.kongfz.com/mobile/images/cate/baijian.png"
+            },
+            {
+                "count": "981",
+                "term": "73000000000000000",
+                "name": "器皿",
+                "hasleaf": 1,
+                "shortcatid": "73",
+                "pinyin": "qimin",
+                "img": "//res2.kongfz.com/mobile/images/cate/qimin.png"
+            },
+            {
+                "count": "53846",
+                "term": "74000000000000000",
+                "name": "动漫影视周边",
+                "hasleaf": 1,
+                "shortcatid": "74",
+                "pinyin": "dmyszb",
+                "img": "//res2.kongfz.com/mobile/images/cate/dongman.png"
+            }
+        ]
+    }
+]

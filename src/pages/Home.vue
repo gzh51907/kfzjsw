@@ -14,8 +14,8 @@
             </div>
             <div style="width:92%;margin:auto">
                 <ul style="display:flex;align-items:center;justify-content: space-around;padding:.23rem 0 .23rem 0;">
-                    <li v-for="item in menu" :key="item.img">
-                        <img :src="require(`../assets/shouye/${item.img}`)" style="width:.586667rem;display:block;margin-bottom:.13rem">{{item.text}}
+                    <li v-for="item in menu" :key="item.img" @click="goto()">
+                        <img :src="require(`../assets/shouye/${item.img}`)" style="width:.586667rem;display:block;margin-bottom:.13rem"><span>{{item.text}}</span>
                     </li>
                 </ul>
                 <ul style="display:flex;flex-wrap:wrap;justify-content: space-between;">
@@ -108,13 +108,34 @@
                    </li>
                </ul>
            </div>
+           <div style="wigth:100%;height:.1rem;background:#F3F3F3;margin-top:.28rem"></div>
+           <div v-for="item in data" :key="item.name">
+                 <p style="font-size:.26rem;padding:.2rem .18rem .2rem .18rem"><b>{{item.name}}</b><span style="float: right;font-size:.18rem;line-height:.34rem">更多 ></span></p>
+               <ul style="">
+                   <li v-for="val in item.list" :key="val.img" style="margin:0 .13rem 0 .13rem;display:flex;position:relative">
+                        <p style="background:#B1403E;color:#fff;width:.8rem;height:.4rem;position: absolute;top:1.2rem;border-radius:0 .13rem .13rem 0;opacity:0.9"><span style="display:block;line-height:.4rem;font-size:.2rem;padding-left:.13rem">{{val.text3}}</span></p>
+                      <div style="width:1.333333rem;height:1.8968rem;line-height:3.04rem;"> 
+                          <img :src="require(`../assets/shouye/${val.img}`)" style="width:1.333333rem;height:1.333333rem ;diaplay:block"></div>
+                       <div style="line-height:.3rem;padding:0 .13rem 0 .13rem;">
+                        <p style="font-size:.2rem"><b>{{val.text}}</b></p>
+                        <p style="margin-top: .106667rem;">{{val.text1}}</p>
+                        <p style="margin-top: .106667rem;">
+                            <span class="span2">{{val.text2}}</span>
+                        </p>
+                       </div>
+                   </li>
+               </ul>
+           </div>
         </div>
     </div>
 </template>
 <script>
+import data from '../data/shouye.json';
+
 export default {
     data(){
         return{
+            data,
             menus:[
                 "lb1.jpg",
                 "lb2.jpg",
@@ -300,6 +321,11 @@ export default {
                text2:"《欧阳修词校注》在校勘、编年的基础上，对欧词之人名、地名、本事、典故、名物及词句化用等做了深入而全面",
                 text6:"¥38起起"
             }]
+        }
+    },
+    methods:{
+        goto(){
+            this.$router.push('/fenlei')
         }
     }
 }
