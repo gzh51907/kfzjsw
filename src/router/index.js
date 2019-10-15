@@ -20,7 +20,6 @@ import Newbook from '../pages/everynewbook/newbook.vue';
 import Details from '../pages/Details.vue';
 import Management from '../pages/management.vue';
 
-
 // 3. 实例化router并配置参数
 let router = new VueRouter({
     // mode:'hash',
