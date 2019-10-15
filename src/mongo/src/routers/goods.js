@@ -22,7 +22,7 @@ Router.route('/')
         // db.query(sql).then((results)=>{
         //     res.send(results)
         // });
-        let result = await mongo.find('goods');
+        let result = await mongo.find('books');
         res.send(result);
     })
 Router.route('/:id')

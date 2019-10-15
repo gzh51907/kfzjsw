@@ -757,7 +757,7 @@ export default {
     };
   },
   methods: {
-    goOff(){
+    goOff() {
       this.$router.go(-1);
     },
     navShow(index) {
@@ -781,6 +781,10 @@ export default {
         }
       }
     }
+  },
+  async created() {
+    let data = await this.$axios.get("http://127.0.0.1:1906/goods/");
+    console.log(data);
   }
 };
 </script>
@@ -798,19 +802,19 @@ export default {
   color: red;
 }
 header {
-    width: 100%;
-    height: 0.6rem;
-    background-color: #fff;
-    text-align: center;
-    line-height: 0.64rem;
-    position: relative;
-    font-size: 0.213333rem;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 0.2rem;
-    align-items: center;
-    i {
-      font-size: 0.28rem;
-    }
+  width: 100%;
+  height: 0.6rem;
+  background-color: #fff;
+  text-align: center;
+  line-height: 0.64rem;
+  position: relative;
+  font-size: 0.213333rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.2rem;
+  align-items: center;
+  i {
+    font-size: 0.28rem;
   }
+}
 </style>
