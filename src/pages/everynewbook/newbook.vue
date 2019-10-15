@@ -1,7 +1,7 @@
 <template>
   <div>
     <header data-v-26464177 style="border-bottom:.013333rem solid #eee;">
-      <i data-v-26464177 class="el-icon-arrow-left"></i>
+      <i data-v-26464177 class="el-icon-arrow-left" @click="goOff()"></i>
       <span style="color:#333;font-size:.226667rem;">今日新书</span>
       <i data-v-26464177 class="el-icon-more"></i>
     </header>
@@ -757,6 +757,9 @@ export default {
     };
   },
   methods: {
+    goOff(){
+      this.$router.go(-1);
+    },
     navShow(index) {
       if (index == 0) {
         if (this.nav == 0) {
@@ -781,7 +784,7 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
 * {
   padding: 0;
   margin: 0;
@@ -794,4 +797,20 @@ export default {
 .icnvaclas {
   color: red;
 }
+header {
+    width: 100%;
+    height: 0.6rem;
+    background-color: #fff;
+    text-align: center;
+    line-height: 0.64rem;
+    position: relative;
+    font-size: 0.213333rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.2rem;
+    align-items: center;
+    i {
+      font-size: 0.28rem;
+    }
+  }
 </style>
