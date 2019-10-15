@@ -60,11 +60,14 @@ export default {
         }
       ]
     };
+<<<<<<< HEAD
   },
   components: {  }
+=======
+  }
+>>>>>>> 19bd2e8c7e321cc695794b5f974fd8b583410590
 };
 </script>
-sty
 <style >
 * {
   padding: 0;

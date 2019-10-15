@@ -15,8 +15,17 @@ import Mine from '../pages/Mine.vue';
 import Book from '../pages/Book.vue';
 import Reg from '../pages/Reg.vue';
 import Login from '../pages/Login.vue';
+<<<<<<< HEAD
+<<<<<<< HEAD
+import Newbook from '../pages/everynewbook/newbook.vue';
+=======
 import Details from '../pages/Details.vue';
 
+>>>>>>> 0744388a45f764a437eb3c23ef7441513218ade7
+=======
+import Details from '../pages/Details.vue';
+
+>>>>>>> 0744388a45f764a437eb3c23ef7441513218ade7
 
 import Management from '../pages/management.vue';
 
@@ -69,11 +78,18 @@ let router = new VueRouter({
             name: 'reg',
             path: '/reg',
             component: Reg
+<<<<<<< HEAD
         },
         {
             name: 'management',
             path: '/management',
             component: Management
+=======
+        }, {
+            name: 'newbook',
+            path: '/newbook',
+            component: Newbook
+>>>>>>> 19bd2e8c7e321cc695794b5f974fd8b583410590
         }
     ]
 });
