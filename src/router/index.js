@@ -75,7 +75,6 @@ let router = new VueRouter({
             name: 'management',
             path: '/management',
             component: Management
-
         }, {
             name: 'newbook',
             path: '/newbook',
