@@ -146,6 +146,10 @@ export default {
     onChange(index) {
       this.current = index;
     }
+  },
+  async created(){
+      let {data} = await this.$axios.get('http://localhost:1906/goods')
+          console.log(data);
   }
 };
 </script>
