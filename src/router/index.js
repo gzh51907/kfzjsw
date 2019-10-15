@@ -15,26 +15,10 @@ import Mine from '../pages/Mine.vue';
 import Book from '../pages/Book.vue';
 import Reg from '../pages/Reg.vue';
 import Login from '../pages/Login.vue';
-<<<<<<< HEAD
 import Fenlei from '../pages/shouye/Fenlei.vue';
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
 import Newbook from '../pages/everynewbook/newbook.vue';
-=======
 import Details from '../pages/Details.vue';
-
->>>>>>> 0744388a45f764a437eb3c23ef7441513218ade7
-=======
-import Details from '../pages/Details.vue';
-
->>>>>>> 0744388a45f764a437eb3c23ef7441513218ade7
-
 import Management from '../pages/management.vue';
-
-
-
->>>>>>> a8730460afe97af887eb61f3972972eae7a1a561
 
 // 3. 实例化router并配置参数
 let router = new VueRouter({
@@ -82,25 +66,19 @@ let router = new VueRouter({
             name: 'reg',
             path: '/reg',
             component: Reg
-<<<<<<< HEAD
         }, {
             name: 'fenlei',
             path: '/fenlei',
             component: Fenlei
-=======
-<<<<<<< HEAD
         },
         {
             name: 'management',
             path: '/management',
             component: Management
-=======
         }, {
             name: 'newbook',
             path: '/newbook',
             component: Newbook
->>>>>>> 19bd2e8c7e321cc695794b5f974fd8b583410590
->>>>>>> a8730460afe97af887eb61f3972972eae7a1a561
         }
     ]
 });
