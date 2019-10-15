@@ -130,7 +130,7 @@
                 <el-tab-pane :label="item.tele" :name="item.tele" v-for="item in booklistnav" :key="item.tele">
                     <div>
                         <ul style>
-                            <li v-for="ele in item.divgood"
+                            <li v-for="ele in item.divgood" :key="ele.title"
                                 style="background:#fafafa;padding:.266667rem .133333rem .133333rem .133333rem;margin-bottom:.133333rem;">
                                 <div style="display: flex;justify-content:space-between;">
                                     <div style="display: flex;">
@@ -150,7 +150,7 @@
                                 </div>
                                 <div style="margin:.13rem 0;">
                                     <ul style="display: flex;justify-content:space-between;">
-                                        <li v-for="item in ele.storyshoplist">
+                                        <li v-for="item in ele.storyshoplist" :key="item.title">
                                             <div>
                                                 <img :src="item.imgsrc" alt
                                                     style="width:1.37rem;height:1.37rem;margin-right:.133333rem;border-radius: .066667rem;" />
@@ -159,7 +159,7 @@
                                                     {{item.title}}</p>
                                             </div>
                                             <ul style=" display: flex;justify-content:space-around;flex-wrap:wrap;">
-                                                <li v-for="ele in item.divgood" style="width:1.4rem">
+                                                <li v-for="ele in item.divgood" :key="ele.title" style="width:1.4rem">
                                                     <img :src="ele.imgsrc" alt style="width:1.4rem;height:1.4rem;" />
                                                     <p
                                                         style="height:.52rem;overflow: hidden;font-size: .2rem;color: #262626;margin-top:.04rem">
