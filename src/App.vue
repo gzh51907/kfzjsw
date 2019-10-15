@@ -22,6 +22,7 @@
 </template>
 
 <script>
+
 export default {
   name: "app",
   data() {
@@ -60,7 +61,7 @@ export default {
       ]
     };
   },
-  components: {}
+  components: {  }
 };
 </script>
 sty
@@ -73,7 +74,7 @@ sty
 a {
   text-decoration: none;
 }
-.el-col a{
+.el-col a {
   color: #555;
 }
 #start {
@@ -89,22 +90,22 @@ a {
   justify-content: space-around;
   align-items: center;
 }
-.current i{
-  color: #C21B29;
+.current i {
+  color: #c21b29;
   font-weight: bold;
 }
-.current .nav{
-  color: #C21B29;
+.current .nav {
+  color: #c21b29;
 }
 .nav {
   display: flex;
   flex-direction: column;
-  font-size: .16rem;
+  font-size: 0.16rem;
 }
 .nav i {
-  font-size: .346667rem;
+  font-size: 0.346667rem;
 }
 .el-tabs__nav .el-tabs__item {
-  padding: 0 .133333rem;
+  padding: 0 0.133333rem;
 }
 </style>

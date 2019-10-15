@@ -16,6 +16,11 @@ import Book from '../pages/Book.vue';
 import Reg from '../pages/Reg.vue';
 import Login from '../pages/Login.vue';
 
+import Management from '../pages/management.vue';
+
+
+
+
 // 3. 实例化router并配置参数
 let router = new VueRouter({
     // mode:'hash',
@@ -24,11 +29,11 @@ let router = new VueRouter({
         // 首页
         {
             name: 'home',
-            path: '/home',  //当浏览器地址为/home时，显示Home组件的内容
+            path: '/home', //当浏览器地址为/home时，显示Home组件的内容
             component: Home
         },
         {
-            path: '/',  //当浏览器地址为/home时，显示Home组件的内容
+            path: '/', //当浏览器地址为/home时，显示Home组件的内容
             redirect: '/home'
         },
         // 购物车
@@ -57,6 +62,11 @@ let router = new VueRouter({
             name: 'reg',
             path: '/reg',
             component: Reg
+        },
+        {
+            name: 'management',
+            path: '/management',
+            component: Management
         }
     ]
 });
