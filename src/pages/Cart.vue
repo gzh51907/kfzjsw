@@ -5,9 +5,9 @@
             购物车
         </header>
         <div class="page-cart">
-            <el-row v-for="(item,idx) in datalist" :key="item.id" style="margin-top:10px;border-bottom:1px solid #ccc;padding:10px 0;">
+            <el-row v-for="(item,idx) in datalist" :key="item.id" style="margin-top:.13333rem;border-bottom:.01333rem solid #ccc;padding:.1333rem 0;">
                 <el-col :span="8" style="display:flex">
-                    <el-checkbox v-model="checked" size="medium" style="margin-right:10px;margin-top:20px;"></el-checkbox>
+                    <van-checkbox v-model="item.selected" class="check" checked-color="#C21B29">复选框</van-checkbox>
                     <img :src="require(`../assets/paimai/${item.imgurl}`)" />
                 </el-col>
                 <el-col :span="13" style="display:flex;flex-direction: column;">
@@ -18,12 +18,12 @@
                     <el-input-number size="mini" v-model="item.qty" :min="1"></el-input-number>
                 </el-col>
                 <el-col :span="3" style="text-align:right">
-                    <el-button type="danger" icon="el-icon-delete" @click="remove(idx)" circle size="mini" style="margin-top:10px;"></el-button>
+                    <el-button type="danger" icon="el-icon-delete" @click="remove(idx)" circle size="mini" style="margin-top:.13333rem;background:#C21B29"></el-button>
                 </el-col>
             </el-row>
             <el-row>
-                <el-col :span="24" style="text-align:right;margin-top:20px;">
-                    <el-button type="danger" icon="el-icon-delete" size="mini" @click="removeAll">清空购物车</el-button>
+                <el-col :span="24" style="text-align:right;margin-top:.266667rem;">
+                    <el-button type="danger" style="background:#C21B29" icon="el-icon-delete" size="mini" @click="removeAll">清空购物车</el-button>
                 </el-col>
             </el-row>
         </div>
@@ -33,7 +33,7 @@
                 <span>￥ {{totalPrice.toFixed(2)}}</span>
             </el-col>
             <el-col :span="12" style="text-align:right">
-                <el-button type="danger" icon="el-icon-shopping-bag-1">去结算</el-button>
+                <el-button type="danger" icon="el-icon-shopping-bag-1" style="background:#C21B29">去结算</el-button>
             </el-col>
         </div>
     </div>
@@ -50,7 +50,8 @@ export default {
           imgurl:
             "dijia.png",
           price: 138.8,
-          qty: 3
+          qty: 3,
+          selected: false
         },
         {
           id: "2",
@@ -58,7 +59,8 @@ export default {
           imgurl:
             "gwzx.png",
           price: 238,
-          qty: 2
+          qty: 2,
+          selected: false
         },
         {
           id: "3",
@@ -66,7 +68,8 @@ export default {
           imgurl:
             "mrmj.png",
           price: 98.9,
-          qty: 1
+          qty: 1,
+          selected: false
         }
       ]
     };
@@ -102,9 +105,15 @@ export default {
 .page-cart {
   padding: .2rem;
   box-sizing: border-box;
-
+  .check{
+    display: block;
+    width:.266667rem;
+    height:.266667rem;
+    margin-right:.13333rem;
+    margin-top:.266667rem;
+  }
   img {
-    width: 1.333333rem;
+    width: 1.066667rem;
     height: 1.066667rem;
   }
 }
@@ -122,13 +131,13 @@ export default {
   font-size: .213333rem;
   span{
     font-size: .186667rem;
-      color: red;
+      color: #C21B29;
   }
 }
 header {
   width: 100%;
   height: .64rem;
-  background-color: #b81c22;
+  background-color: #C21B29;
   text-align: center;
   line-height: .64rem;
   color: #fff;

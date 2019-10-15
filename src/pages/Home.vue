@@ -90,6 +90,24 @@
                    </li>
                </ul>
            </div>
+           <div style="wigth:100%;height:.1rem;background:#F3F3F3;margin-top:.28rem"></div>
+           <div>
+                 <p style="font-size:.26rem;padding:.2rem .18rem .2rem .18rem"><b>旧书-国学经典</b><span style="float: right;font-size:.18rem;line-height:.34rem">更多 ></span></p>
+               <ul style="">
+                   <li v-for="item in jiushu" :key="item.img" style="margin:0 .13rem 0 .13rem;display:flex;position:relative">
+                        <p style="background:#B1403E;color:#fff;width:.8rem;height:.4rem;position: absolute;top:1.2rem;border-radius:0 .13rem .13rem 0;opacity:0.9"><span style="display:block;line-height:.4rem;font-size:.2rem;padding-left:.13rem">{{item.text6}}</span></p>
+                      <div style="width:1.333333rem;height:1.8968rem;line-height:3.04rem;"> 
+                          <img :src="require(`../assets/shouye/${item.img}`)" style="width:1.333333rem;height:1.333333rem ;diaplay:block"></div>
+                       <div style="line-height:.3rem;padding:0 .13rem 0 .13rem;">
+                        <p style="font-size:.2rem"><b>{{item.text}}</b></p>
+                        <p style="margin-top: .106667rem;">{{item.text1}}</p>
+                        <p style="margin-top: .106667rem;">
+                            <span class="span2">{{item.text2}}</span>
+                        </p>
+                       </div>
+                   </li>
+               </ul>
+           </div>
         </div>
     </div>
 </template>
@@ -262,12 +280,31 @@ export default {
                text4:"赠品",
                text5:"特装",
                 text6:"¥318"
+            }],
+            jiushu:[{
+                img:"j4.jpg",
+               text:"山谷詩集注（全二冊）",
+               text1:"[宋]黄庭坚  著；[宋]任渊 、[宋]史容、[宋]史季温  注 / 上海古籍出版社 / 2003-12 / 精装",
+               text2:"黄庭坚，字鲁直，自号山谷道人，晚号涪翁，宋洪州分宁（今江西修水）人，生于宋仁宗庆历五年（一○四五），",
+                text6:"¥55起"
+            },{
+               img:"j2.jpg",
+              text:"民国大师经典作品集·一位执拗的君子，孤独的改革家：王安石传",
+              text1:"梁启超  著 / 商务印书馆 / 2015-01 / 精装",
+               text2:"《民国大师经典作品集·一位执拗的》",
+                text6:"¥10起"
+            },{
+               img:"j3.jpg",
+                text:"欧阳修词校注",
+                text1:"上海古籍出版社  编 / 上海古籍出版社 / 2015-07 / 平装",
+               text2:"《欧阳修词校注》在校勘、编年的基础上，对欧词之人名、地名、本事、典故、名物及词句化用等做了深入而全面",
+                text6:"¥38起起"
             }]
         }
     }
 }
 </script>
 <style scoped>
-*{margin: 0;padding: 0; }
-.span1{padding:.06333rem;height: .293333rem;border: .013333rem solid #997F55;margin-right: .133333rem;color:#997F55;border-radius:.13rem }
+*{margin: 0;padding: 0;}
+.span1{padding:.06333rem;height: .293333rem;border: .013333rem solid #997F55;margin-right: .183333rem;color:#997F55;border-radius:.10rem }
 </style>

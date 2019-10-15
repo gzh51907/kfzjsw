@@ -15,6 +15,8 @@ import Mine from '../pages/Mine.vue';
 import Book from '../pages/Book.vue';
 import Reg from '../pages/Reg.vue';
 import Login from '../pages/Login.vue';
+import Details from '../pages/Details.vue';
+
 
 import Management from '../pages/management.vue';
 
@@ -41,6 +43,11 @@ let router = new VueRouter({
             name: 'cart',
             path: '/cart',
             component: Cart
+        },
+        {
+            name: 'details',
+            path: '/details',
+            component: Details
         },
         {
             name: 'book',
