@@ -20,7 +20,7 @@
 
         <div class="right">
           <p>
-            <span>{{userName}}</span>
+            <span>{{username}}</span>
             <span>
               帐户管理
               <i class="el-icon-arrow-right"></i>
@@ -231,8 +231,8 @@
       <footer>
         <div class="top">
           <ul>
-            <li>{{userName}}</li>|
-            <li>退出</li>|
+            <li>{{username}}</li>|
+            <li @click="logout">退出</li>|
             <li>客服留言</li>|
             <li>电脑版</li>
           </ul>
@@ -247,6 +247,7 @@
   </div>
 </template>
 <script>
+import { mapState, mapGetters, mapMutations } from "vuex";
 import asided from "./aside/aside.vue";
 
 // 禁止滑动
@@ -257,8 +258,8 @@ var preD = function(e) {
 export default {
   data() {
     return {
+      username: "",
       userImgSrc: require("../assets/Mine/11186033.jpg"),
-      userName: "书友_1010_759783",
       favorableRate: "0%",
       userReputation: "0",
       balance: "￥0.00",
@@ -309,19 +310,18 @@ export default {
       ],
       asideSection3: ["书店区", "在线拍卖", "资讯", "社区"],
       asideWidth: 0,
-      popupStatus: false,
+      popupStatus: false
     };
   },
-
-  components: {
-    asided
+  created() {
+    this.username = this.$route.query.username;
   },
   methods: {
     goOff() {
       this.$router.go(-1);
     },
     goCart() {
-      this.$router.push({ path: "Cart" });
+      this.$router.push("/cart");
     },
     asideShow() {
       console.log(55);
@@ -333,12 +333,27 @@ export default {
       document.body.style.overflow = "hidden";
       document.addEventListener("touchmove", mo, false); //禁止页面滑动
     },
-
     asideClose() {
       this.asideWidth = 0;
-    }
-  },
+    },
+    // ...mapMutations({
+    //   signout:'logout',
+    //     userlogout(commit,payload){
+    //        commit('logout',payload)
+    //     }
+    // })
+    ...mapMutations(['logout']),
+    // logout() {
+    //   console.log(1111);
+    //   this.$store.commit("logout");
+    // }
+    created(){
+    this.activeIndex = this.$route.path;
 
+    this.$store.dispatch('checkLogin');
+  },
+  },
+  
   // 禁止滑动
   watch: {
     // 监听data中弹层状态
@@ -351,6 +366,9 @@ export default {
         document.removeEventListener("touchmove", preD, { passive: false });
       }
     }
+  },
+  components: {
+    asided
   }
 };
 </script>
@@ -532,7 +550,7 @@ main {
       height: 1.053333rem;
       padding: 0.2rem 0;
       border-bottom: 1px solid #eee;
-      font-size: .16rem;
+      font-size: 0.16rem;
 
       li {
         width: 25%;

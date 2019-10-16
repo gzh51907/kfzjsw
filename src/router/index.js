@@ -19,6 +19,7 @@ import Fenlei from '../pages/shouye/Fenlei.vue';
 import Newbook from '../pages/everynewbook/newbook.vue';
 import Details from '../pages/Details.vue';
 import Management from '../pages/management.vue';
+import { log } from 'util';
 
 // 3. 实例化router并配置参数
 let router = new VueRouter({
@@ -29,17 +30,20 @@ let router = new VueRouter({
         {
             name: 'home',
             path: '/home', //当浏览器地址为/home时，显示Home组件的内容
-            component: Home
+            component: Home,
+            // props:{username:'laoxie',password:123}, //等效于<Home username="laoxie" password=123/>
+            // props:function(route){
+
+            //     return {
+            //         username:'laoxie',
+            //         password:123
+            //     }
+            // },
+            props: true, // 等效于<Home v-bind="route.params"/> -> <Home v-bind="{username:'laoxie',age:18}"/> -> <Home username="laoxie" password=123/>
         },
         {
             path: '/', //当浏览器地址为/home时，显示Home组件的内容
             redirect: '/home'
-        },
-        // 购物车
-        {
-            name: 'cart',
-            path: '/cart',
-            component: Cart
         },
         {
             name: 'details',
@@ -50,10 +54,7 @@ let router = new VueRouter({
             name: 'book',
             path: '/book',
             component: Book
-        }, {
-            name: 'mine',
-            path: '/mine',
-            component: Mine
+
         }, {
             name: 'paimai',
             path: '/paimai',
@@ -80,10 +81,49 @@ let router = new VueRouter({
             name: 'newbook',
             path: '/newbook',
             component: Newbook
+        }, {
+            name: 'mine',
+            path: '/mine',
+            component: Mine,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        // 购物车
+        {
+            name: 'cart',
+            path: '/cart',
+            component: Cart,
+            meta: {
+                requiresAuth: true
+            }
         }
     ]
 });
+router.beforeEach(function (to, from, next) {
+    window.console.log('beforEach', to);
 
+    //在全局路由守卫beforeEach中进行页面权限访问控制
+    //先判断目标路由是否需要鉴权
+    if (to.meta.requiresAuth) {
+        let user = localStorage.getItem('user');
+        console.log(user);
+
+        if (user) {
+            next();
+        } else {
+            router.push({
+                path: '/login',
+                query: {
+                    targetUrl: to.fullPath
+                }
+            })
+        }
+    } else {
+        next();
+    }
+
+})
 
 // 5.在组件中使用VueRouter
 
