@@ -28,12 +28,11 @@ Router.route('/')
 Router.route('/:id')
     .get(async(req,res)=>{
         let {id} = req.params;
-
         // pool.query(`select * from list where gid=${id}`,function(error,results,fields){
         //     if(error) throw error;
         //     res.send(results);
         // });
-        let result = await mongo(`select * from list where gid=${id}`);
+        let result = await mongo.find('goods',{'id':id});
         res.send(result);
 
     })
