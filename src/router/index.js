@@ -47,7 +47,7 @@ let router = new VueRouter({
         },
         {
             name: 'details',
-            path: '/details',
+            path: '/details/:id',
             component: Details
         },
         {
@@ -76,8 +76,7 @@ let router = new VueRouter({
             name: 'management',
             path: '/management',
             component: Management
-        },
-        {
+        }, {
             name: 'newbook',
             path: '/newbook',
             component: Newbook

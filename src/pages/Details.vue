@@ -19,23 +19,24 @@
                 </el-dropdown-menu>
             </el-dropdown>
         </div>
+
         <van-swipe @change="onChange" class="banner">
-            <van-swipe-item v-for="item in banner" :key="item">
-                <img :src="require(`../assets/betails/${item}`)" alt="">
+            <van-swipe-item class="sp">
+                <img :src="datails.imgsrc" alt="">
             </van-swipe-item>
-            <div class="custom-indicator" slot="indicator">{{ current + 1 }}/{{banner.length}}</div>
+            <div class="custom-indicator" slot="indicator">{{ current + 1 }}/1</div>
         </van-swipe>
         <div class="title">
-            <h1>盗墓玄机</h1>
+            <h1>{{datails.title}}</h1>
         </div>
         <p class="price">
             <span class="price-now">
                 <span class="price-icon">￥</span>
-                <span class="price-txt">14.4</span>
+                <span class="price-txt">{{datails.prite}}</span>
             </span>
-            <span class="discount">4.8折</span>
-            <del>￥30</del>
-            <span class="adr-send">北京海淀</span>
+            <span class="discount">7.8折</span>
+            <del>￥{{(datails.prite/0.78).toFixed()}}</del>
+            <span class="adr-send">{{datails.action1}}</span>
         </p>
         <p class="cns">
             <span class="cover-txt">全新</span>
@@ -72,67 +73,60 @@ export default {
   data() {
     return {
       current: 0,
-      banner: [
-        "rhRM9wM8AD_b.jpg",
-        "7eLYxGrNet_b.jpg",
-        "67Qma7HWJY_b.jpg",
-        "MQAKAeQSLJ_b.jpg",
-        "qbK4dNjgyX_b.jpg"
-      ],
-      noteslist:[
-          {
-              name:'作者',
-              val:'朱晓翔 著'
-          },
-          {
-              name:'出版社',
-              val:'中国华侨出版社'
-          },
-          {
-              name:'ISBN',
-              val:'9787511308313'
-          },
-          {
-              name:'出版时间',
-              val:'2011-01'
-          },
-          {
-              name:'版次',
-              val:'1'
-          },
-          {
-              name:'装帧',
-              val:'平装'
-          },
-          {
-              name:'开本',
-              val:'16开'
-          },
-          {
-              name:'纸张',
-              val:'胶版纸'
-          },
-          {
-              name:'页数',
-              val:'282页'
-          },
-          {
-              name:'字数',
-              val:'260千字'
-          },
-          {
-              name:'定价',
-              val:'30元'
-          },
-          {
-              name:'货号',
-              val:'yx'
-          },
-          {
-              name:'上书时间',
-              val:'2019-10-14'
-          },
-
+      datails: [],
+      noteslist: [
+        {
+          name: "作者",
+          val: "朱晓翔 著"
+        },
+        {
+          name: "出版社",
+          val: "中国华侨出版社"
+        },
+        {
+          name: "ISBN",
+          val: "9787511308313"
+        },
+        {
+          name: "出版时间",
+          val: "2011-01"
+        },
+        {
+          name: "版次",
+          val: "1"
+        },
+        {
+          name: "装帧",
+          val: "平装"
+        },
+        {
+          name: "开本",
+          val: "16开"
+        },
+        {
+          name: "纸张",
+          val: "胶版纸"
+        },
+        {
+          name: "页数",
+          val: "282页"
+        },
+        {
+          name: "字数",
+          val: "260千字"
+        },
+        {
+          name: "定价",
+          val: "30元"
+        },
+        {
+          name: "货号",
+          val: "yx"
+        },
+        {
+          name: "上书时间",
+          val: "2019-10-14"
+        }
       ]
     };
   },
@@ -144,8 +138,17 @@ export default {
       this.$router.go(-1);
     },
     onChange(index) {
-      this.current = index;
+      //this.current = index;
     }
+  },
+  async created() {
+    let { id } = this.$route.params;
+    console.log(id);
+
+    let { data } = await this.$axios.get(`http://127.0.0.1:1906/goods/${id}`);
+
+    this.datails = data[0];
+    console.log(this.datails);
   }
 };
 </script>
@@ -154,9 +157,9 @@ export default {
   padding: 0;
   margin: 0;
 }
-.details{
-    padding-bottom: .733333rem;
-    box-sizing: border-box;
+.details {
+  padding-bottom: 0.733333rem;
+  box-sizing: border-box;
 }
 .el-dropdown-menu {
   padding: 0;
@@ -165,21 +168,28 @@ export default {
   width: 100%;
   height: 5rem;
   position: relative;
-  img {
+  .sp {
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 80%;
+      height: 90%;
+    }
   }
   .custom-indicator {
-    width: .533333rem;
-    height: .266667rem;
+    width: 0.533333rem;
+    height: 0.266667rem;
     position: absolute;
-    right: .266667rem;
-    bottom: .266667rem;
-    border-radius: .133333rem;
+    right: 0.266667rem;
+    bottom: 0.266667rem;
+    border-radius: 0.133333rem;
     text-align: center;
     background: rgba(37, 31, 28, 0.5);
     color: #fff;
-    font-size: .213333rem;
+    font-size: 0.213333rem;
   }
 }
 .tit {
@@ -222,7 +232,7 @@ export default {
   height: 0.32rem;
   margin-top: 0.133333rem;
   padding: 0 0.133333rem;
-  font-size: 0.266667rem;
+  font-size: .213333rem;
   font-weight: bold;
 }
 .price {
@@ -273,7 +283,7 @@ export default {
     padding: 0 0.106667rem;
     line-height: 0.346667rem;
     text-align: center;
-    font-size: .16rem;
+    font-size: 0.16rem;
     border-radius: 0.066667rem;
     background-color: #ddd;
   }
@@ -281,70 +291,70 @@ export default {
     height: 0.346667rem;
     line-height: 0.346667rem;
     color: #999;
-    font-size: .16rem;
+    font-size: 0.16rem;
   }
 }
-.notes-list{
-    width: 100%;
-    height: 4.266667rem;
-    padding: .133333rem .2rem;
-    box-sizing: border-box;
-    .note-title{
-        display: inline-block;
-        width: 1rem;
-        height: .306667rem;
-        font-size: .186667rem;
-        color: #aaa;
-    }
-    .note-txt{
-            display: inline-block;
-            font-size: .186667rem;
-            color: #000;
-        }
+.notes-list {
+  width: 100%;
+  height: 4.266667rem;
+  padding: 0.133333rem 0.2rem;
+  box-sizing: border-box;
+  .note-title {
+    display: inline-block;
+    width: 1rem;
+    height: 0.306667rem;
+    font-size: 0.186667rem;
+    color: #aaa;
+  }
+  .note-txt {
+    display: inline-block;
+    font-size: 0.186667rem;
+    color: #000;
+  }
 }
-.footer_inner{
-    width: 100%;
-    height: .733333rem;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+.footer_inner {
+  width: 100%;
+  height: 0.733333rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  padding: 0.133333rem 0.133333rem 0 0.133333rem;
+  box-sizing: border-box;
+  background-color: #fff;
+  p {
     display: flex;
-    padding: .133333rem .133333rem 0 .133333rem;
-    box-sizing: border-box;
-    background-color: #fff;
-    p{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-right: .333333rem;
-        i{
-            width: .266667rem;
-            height: .266667rem;
-            font-size: .266667rem;
-        }
-        span{
-            width: .333333rem;
-            font-size: .16rem;
-            text-align: center;
-        }
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.333333rem;
+    i {
+      width: 0.266667rem;
+      height: 0.266667rem;
+      font-size: 0.266667rem;
     }
-    .go-buy-btn{
-        width: 1.333333rem;
-        height: .533333rem;
-        background-color: #D48C66;
-        color: #fff;
-        margin-left: .066667rem;
-        padding: 0;
-        font-size: .186667rem;
+    span {
+      width: 0.333333rem;
+      font-size: 0.16rem;
+      text-align: center;
     }
-    .add-cart-btn{
-        width: 1.333333rem;
-        height: .533333rem;
-        background-color: #9E100E;
-        color: #fff;;
-        padding: 0;
-        font-size: .186667rem;
-    }
+  }
+  .go-buy-btn {
+    width: 1.333333rem;
+    height: 0.533333rem;
+    background-color: #d48c66;
+    color: #fff;
+    margin-left: 0.066667rem;
+    padding: 0;
+    font-size: 0.186667rem;
+  }
+  .add-cart-btn {
+    width: 1.333333rem;
+    height: 0.533333rem;
+    background-color: #9e100e;
+    color: #fff;
+    padding: 0;
+    font-size: 0.186667rem;
+  }
 }
 </style>
