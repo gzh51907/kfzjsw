@@ -314,7 +314,12 @@ export default {
     };
   },
   created() {
+    
     this.username = this.$route.query.username;
+
+    this.activeIndex = this.$route.path;
+
+    this.$store.dispatch("checkLogin");
   },
   methods: {
     goOff() {
@@ -342,30 +347,11 @@ export default {
     //        commit('logout',payload)
     //     }
     // })
-    ...mapMutations(['logout']),
+    ...mapMutations(["logout"])
     // logout() {
     //   console.log(1111);
     //   this.$store.commit("logout");
     // }
-    created(){
-    this.activeIndex = this.$route.path;
-
-    this.$store.dispatch('checkLogin');
-  },
-  },
-  
-  // 禁止滑动
-  watch: {
-    // 监听data中弹层状态
-    popupStatus(val) {
-      if (val) {
-        document.body.style.overflow = "hidden";
-        document.addEventListener("touchmove", preD, { passive: false }); // 禁止页面滑动
-      } else {
-        document.body.style.overflow = ""; // 出现滚动条
-        document.removeEventListener("touchmove", preD, { passive: false });
-      }
-    }
   },
   components: {
     asided
@@ -504,6 +490,7 @@ main {
       ul {
         display: flex;
         height: 100%;
+        justify-content: space-around;
 
         li {
           width: 20%;
