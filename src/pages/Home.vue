@@ -133,6 +133,7 @@
 import data from '../data/shouye.json';
 
 export default {
+    name:'Home',
     data(){
         return{
             data,
@@ -326,8 +327,13 @@ export default {
     methods:{
         goto(){
             this.$router.push('/fenlei')
+        },
+        
+    },
+    beforeRouteleave(to,from,next){
+            console.log("Home.beforeRouteleave");
+            next();
         }
-    }
 }
 </script>
 <style scoped>

@@ -12,7 +12,7 @@
         <el-input type="password" v-model="ruleForm.password" autocomplete="off" style="width:85%" placeholder="请输入密码" maxlength="16"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-checkbox label="下次免登陆" v-model="ruleForm.mdl"></el-checkbox>
+        <el-checkbox label="七天免登录" v-model="ruleForm.mdl"></el-checkbox>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm" style="width:85%">登录</el-button>
@@ -75,13 +75,18 @@ export default {
           if (data.code === 1) {
             let { targetUrl } = this.$route.query;console.log('targetUrl:',targetUrl)
 
-            this.$router.replace({
-              path: targetUrl || "/mine"
-            });
 
             // 把token写入localstorage
-            localStorage.setItem("Authorization", data.data);
+            ///localStorage.setItem("Authorization", data.data);
+            this.$store.commit('login',{username,Authorization:data.data})
             // this.$router.replace({path:'/mine',params:{username}})
+
+
+            this.$router.replace({
+              path: targetUrl || "/mine",query:{username}
+            });
+
+           
           } else {
             alert("用户名或密码不正确");
           }

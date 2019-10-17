@@ -15,10 +15,13 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Vant);
 
-
+import VueX from 'vuex';
+import store from "./store";
+Vue.use(VueX);
 
 new Vue({
   // 4.把router实例注入到vue实例中
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
