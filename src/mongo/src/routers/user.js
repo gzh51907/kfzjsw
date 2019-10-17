@@ -18,7 +18,7 @@ Router.post('/reg', async (req, res) => {
         password
     } = req.body;
 
-    let result = await mongo.create('goods', [{
+    let result = await mongo.create('user', [{
         username,
         password,
         regtime: Date.now()
@@ -32,7 +32,7 @@ Router.get('/check', async (req, res) => {
         username
     } = req.query;
 
-    let result = await mongo.find('goods', {
+    let result = await mongo.find('user', {
         username
     });
     if (result.length) {
@@ -51,7 +51,7 @@ Router.get('/login', async (req, res) => {
         mdl
     } = req.query;
 
-    let result = await mongo.find('goods', {
+    let result = await mongo.find('user', {
         username,
         password
     });
@@ -69,7 +69,7 @@ Router.get('/login', async (req, res) => {
 })
 
 Router.post('/', async (req, res) => {
-    let result = await mongo.create('goods', [{
+    let result = await mongo.create('user', [{
         username: "pengyh",
         age: 18,
         password: "123456789"

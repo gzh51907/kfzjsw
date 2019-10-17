@@ -62,8 +62,8 @@
                 <span>收藏</span>
             </p>
             <el-button-group>
-                <el-button class="go-buy-btn" icon="el-icon-goods">立即购买</el-button>
-                <el-button class="add-cart-btn" icon="el-icon-shopping-cart-2">加入购物车</el-button>
+                <el-button class="go-buy-btn" icon="el-icon-goods" @click.native="buynow()">立即购买</el-button>
+                <el-button class="add-cart-btn" icon="el-icon-shopping-cart-2" @click.native="add2cart()">加入购物车</el-button>
             </el-button-group>
         </div>
     </div>
@@ -127,9 +127,11 @@ export default {
           name: "上书时间",
           val: "2019-10-14"
         }
-      ]
+      ],
+      goods:{}
     };
   },
+
   methods: {
     goto(path) {
       this.$router.push(path);
@@ -139,16 +141,63 @@ export default {
     },
     onChange(index) {
       //this.current = index;
-    }
+    },
+    add2cart(){
+            let id = this.datails.id
+            // 判断当前商品是否已经存在购物车
+            let currentGoods = this.$store.state.cart.cartlist.filter(item=>item.id===id)[0]
+            if(currentGoods){
+                // 存在：修改商品数量
+                let qty = currentGoods.qty+1;
+                this.$store.commit('changeQty',{id,qty});
+            }else{
+                // 添加一个商品
+                let goods = {
+                    id,
+                    name: this.datails.title,
+                    imgurl:this.datails.imgsrc,
+                    price: this.datails.prite,
+                    qty: 1,
+                    selected:false
+                }
+                this.goods=goods;
+                this.$store.commit('add2cart',goods);
+                this.addcart();
+            }
+            
+        },
+        async addcart(){
+          let id = this.datails.id
+          let { data } = await this.$axios.get('http://localhost:1906/order/gain');
+           let currentGoods = data.filter(item=>item.id===id)[0];
+           console.log(currentGoods);
+           
+            if(currentGoods){
+                // 存在：修改商品数量
+                let qty = currentGoods.qty+1;
+                await this.$axios.patch('http://localhost:1906/order/alter',{
+                  id,qty
+                });
+            }else{
+            let {id,name,qty,price,imgurl,selected} = this.goods
+            console.log(id,name,qty,price,imgurl);
+            let {data} = await this.$axios.post('http://localhost:1906/order/add',{
+              id,name,qty,price,imgurl,selected
+            });
+            
+            }
+        },
+         buynow(){
+            // 立即购买
+            this.add2cart();
+            this.$router.push('/cart');
+            this.addcart();
+        }
   },
   async created() {
     let { id } = this.$route.params;
-    console.log(id);
-
     let { data } = await this.$axios.get(`http://127.0.0.1:1906/goods/${id}`);
-
     this.datails = data[0];
-    console.log(this.datails);
   }
 };
 </script>
@@ -232,7 +281,7 @@ export default {
   height: 0.32rem;
   margin-top: 0.133333rem;
   padding: 0 0.133333rem;
-  font-size: .213333rem;
+  font-size: 0.213333rem;
   font-weight: bold;
 }
 .price {
