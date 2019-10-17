@@ -20,6 +20,8 @@ import Newbook from '../pages/everynewbook/newbook.vue';
 import Details from '../pages/Details.vue';
 import Management from '../pages/management.vue';
 import { log } from 'util';
+import { Store } from 'vuex';
+import store from '../store'
 
 // 3. 实例化router并配置参数
 let router = new VueRouter({
@@ -99,16 +101,30 @@ let router = new VueRouter({
         }
     ]
 });
-router.beforeEach(function (to, from, next) {
+router.beforeEach(async function (to, from, next) {
     window.console.log('beforEach', to);
 
     //在全局路由守卫beforeEach中进行页面权限访问控制
     //先判断目标路由是否需要鉴权
     if (to.meta.requiresAuth) {
         let user = localStorage.getItem('user');
+        
         console.log(user);
 
         if (user) {
+           let res = await store.dispatch('checkLogin');
+           console.log("res:",res);
+           
+           if(!res === 400){
+               next({
+                path: '/login',
+                query: {
+                    targetUrl: to.fullPath
+                }
+               })
+           }else{
+               next();
+           }
             next();
         } else {
             router.push({

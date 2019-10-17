@@ -12,7 +12,7 @@
         <el-input type="password" v-model="ruleForm.password" autocomplete="off" style="width:85%" placeholder="请输入密码" maxlength="16"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-checkbox label="下次免登陆" v-model="ruleForm.mdl"></el-checkbox>
+        <el-checkbox label="七天免登录" v-model="ruleForm.mdl"></el-checkbox>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm" style="width:85%">登录</el-button>
@@ -83,7 +83,7 @@ export default {
 
 
             this.$router.replace({
-              path: targetUrl || "/mine"
+              path: targetUrl || "/mine",query:{username}
             });
 
            

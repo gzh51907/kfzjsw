@@ -27,6 +27,7 @@ export default {
   name: "app",
   data() {
     return {
+      isRouterAlive:true,
       menus: [
         {
           name: "home",
