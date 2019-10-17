@@ -20,9 +20,10 @@
       <div style="width:100%;position: absolute;top:.92rem;background:#fff;" v-if="nav==1">
         <ul style>
           <li
-            v-for="item in moren"
+            v-for="(item,i) in moren"
             style="border-bottom:.013333rem solid #eee;font-size:.12rem;"
             :key="item.pashli"
+            @click="order(i)"
           >
             <div
               style="margin:0 .2rem;line-height:.866667rem;display: flex;justify-content: space-between;"
@@ -31,6 +32,7 @@
               <i
                 class="el-icon-check"
                 style="font-size:20px;color:red;line-height:.866667rem;"
+                v-if="item.classname == 'true'"
               ></i>
             </div>
           </li>
@@ -58,9 +60,9 @@
           >铵价格筛选</h3>
           <div style="color:#999;margin-bottom:20px;">
             <span style="color:#999;margin-right:.3rem;">商品价格</span>
-            <el-input placeholder style="width:.966667rem;margin-right:.11rem"></el-input>一
-            <el-input placeholder style="width:.966667rem;margin-left:.11rem;"></el-input>
-            <el-button type="danger" style="margin-left:.13rem;" size="mini">确认</el-button>
+            <el-input placeholder style="width:.966667rem;margin-right:.11rem" v-model="inputval1"></el-input>一
+            <el-input placeholder style="width:.966667rem;margin-left:.11rem;" v-model="inputval2"></el-input>
+            <el-button type="danger" style="margin-left:.13rem;" size="mini" @click="buttominpi">确认</el-button>
           </div>
           <div>
             <h3
@@ -83,7 +85,9 @@
     <div>
       <ul style="margin:0 15px;">
         <li
-          v-for="item in datlere" @click="gotodetails(item.id)" :key="item.id"
+          v-for="item in datlere"
+          @click="gotodetails(item.id)"
+          :key="item.id"
           style="padding:10px 0;width:100%;display: flex;justify-content:space-between;"
         >
           <div style="width:.85rem;height:.85rem;text-align:center">
@@ -119,6 +123,8 @@
 export default {
   data() {
     return {
+      inputval1: "",
+      inputval2: "",
       szdlna: "szd",
       nav: 0,
       activeIndex: "默认排序",
@@ -140,16 +146,13 @@ export default {
         }
       ],
       moren: [
-        {
-          goinde: "mor",
-          pashli: "默认排序"
-        },
-        { goinde: "priacc", pashli: "价格升序" },
-        { goinde: "priadd", pashli: "价格降序" },
-        { goinde: "cbacc", pashli: "出版时间降序" },
-        { goinde: "ssadd", pashli: "上书时间升序" },
-        { goinde: "ssacc", pashli: "上书时间降序" },
-        { goinde: "sdjacc", pashli: "书店等级降序" }
+        { goinde: "mor", pashli: "默认排序", classname: "true" },
+        { goinde: "priacc", pashli: "价格升序", classname: "fall" },
+        { goinde: "priadd", pashli: "价格降序", classname: "fall" },
+        { goinde: "cbacc", pashli: "出版时间降序", classname: "fall" },
+        { goinde: "ssadd", pashli: "上书时间升序", classname: "fall" },
+        { goinde: "ssacc", pashli: "上书时间降序", classname: "fall" },
+        { goinde: "sdjacc", pashli: "书店等级降序", classname: "fall" }
       ],
 
       locat: "买家所在地",
@@ -252,18 +255,12 @@ export default {
       datlere: {}
     };
   },
-  async created(){
-      let {data} = await this.$axios.get('http://127.0.0.1:1906/goods')
-      this.datlere=data
-      
-  },
   methods: {
     goOff() {
       this.$router.go(-1);
     },
-    gotodetails(id){
+    gotodetails(id) {
       this.$router.push(`/details/${id}`);
-       
     },
     navShow(index) {
       if (index == 0) {
@@ -285,11 +282,54 @@ export default {
           this.nav = 0;
         }
       }
+    },
+    async order(i) {
+      if (this.moren[i].classname == "false") {
+        this.moren.forEach(ele => {
+          ele.classname = "false";
+        });
+        this.moren[i].classname = "true";
+        if (i == 0) {
+          let {
+            data: { data }
+          } = await this.$axios.get("http://127.0.0.1:1907/goods/");
+          this.datlere = data;
+        } else if (i == 1) {
+          let {
+            data: { data }
+          } = await this.$axios.get("http://127.0.0.1:1907/goods/asc");
+          this.datlere = data;
+        } else if (i == 2) {
+          let {
+            data: { data }
+          } = await this.$axios.get("http://127.0.0.1:1907/goods/desc");
+          this.datlere = data;
+        }
+      } else {
+        this.moren[i].classname = "false";
+      }
+      this.nav = 0;
+    },
+    async buttominpi() {
+      let {
+        data: { data }
+      } = await this.$axios.get("http://127.0.0.1:1907/goods/pat", {
+        params: {
+          in1: this.inputval1,
+          in2: this.inputval2
+        }
+      });
+      this.datlere = data;
+      this.inputval1 = "";
+      this.inputval2 = "";
+      this.nav = 0;
     }
   },
   async created() {
-    let data = await this.$axios.get("http://127.0.0.1:1906/goods/");
-    console.log(data);
+    let {
+      data: { data }
+    } = await this.$axios.get("http://127.0.0.1:1907/goods/");
+    this.datlere = data;
   }
 };
 </script>
