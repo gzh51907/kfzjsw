@@ -43,7 +43,7 @@ let router = new VueRouter({
         },
         {
             name: 'details',
-            path: '/details',
+            path: '/details/:id',
             component: Details
         },
         {

@@ -22,18 +22,14 @@ Router.route('/')
         // db.query(sql).then((results)=>{
         //     res.send(results)
         // });
-        let result = await mongo.find('books');
+        let result = await mongo.find("datlere");
         res.send(result);
     })
 Router.route('/:id')
     .get(async (req, res) => {
         let { id } = req.params;
 
-        // pool.query(`select * from list where gid=${id}`,function(error,results,fields){
-        //     if(error) throw error;
-        //     res.send(results);
-        // });
-        let result = await mongo.find("books");
+        lt = await mongo.find('datlere', { '_id': id });
         res.send(result);
 
     })
