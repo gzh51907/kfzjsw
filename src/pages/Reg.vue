@@ -111,7 +111,7 @@ export default {
             console.log('data:',data)
 
             // this.$router.replace('/mine')
-            if(data.code===1){
+            if(data.insertedCount===1){
 
               this.$router.replace({name:'mine',params:{username},query:{username}})
               // this.$router.replace({path:'/mine',params:{username}})

@@ -1,72 +1,84 @@
 <template>
-    <div class="details">
-        <div class="tit">
-            <div class="goback" @click="goOff"><i class="el-icon-arrow-left"></i></div>
-            <div class="goback cart" @click="goto('/cart')"><i class="el-icon-shopping-cart-full"></i></div>
-            <el-dropdown trigger="click">
-                <span class="el-dropdown-link">
-                    <div class="goback"><i class="el-icon-more"></i></div>
-                </span>
-                <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item icon="el-icon-bell">消息</el-dropdown-item>
-                    <el-dropdown-item style="display:flex">
-                        <div @click="goto('./home')">
-                            <i class="el-icon-house"></i>
-                            <span>首页</span>
-                        </div>
-                    </el-dropdown-item>
-                    <el-dropdown-item icon="el-icon-search">搜索</el-dropdown-item>
-                </el-dropdown-menu>
-            </el-dropdown>
-        </div>
+  <div class="details">
+    <div class="tit">
+      <div class="goback" @click="goOff">
+        <i class="el-icon-arrow-left"></i>
+      </div>
 
-        <van-swipe @change="onChange" class="banner">
-            <van-swipe-item class="sp">
-                <img :src="datails.imgsrc" alt="">
-            </van-swipe-item>
-            <div class="custom-indicator" slot="indicator">{{ current + 1 }}/1</div>
-        </van-swipe>
-        <div class="title">
-            <h1>{{datails.title}}</h1>
-        </div>
-        <p class="price">
-            <span class="price-now">
-                <span class="price-icon">￥</span>
-                <span class="price-txt">{{datails.prite}}</span>
-            </span>
-            <span class="discount">7.8折</span>
-            <del>￥{{(datails.prite/0.78).toFixed()}}</del>
-            <span class="adr-send">{{datails.action1}}</span>
-        </p>
-        <p class="cns">
-            <span class="cover-txt">全新</span>
-            <span class="stock">库存1件</span>
-        </p>
-        <div class="notes-list"> 
-                <p v-for="item in noteslist" :key="item.name">
-                    <span class="note-title">{{item.name}}</span>
-                    <span class="note-txt">{{item.val}}</span>
-                </p>          
-        </div>
-        <div class="footer_inner">
-            <p>
-                <i class="el-icon-takeaway-box"></i>
-                <span>店铺</span>
-            </p>
-            <p>
-                <i class="el-icon-chat-dot-square"></i>
-                <span>联系</span>
-            </p>
-            <p>
-                <van-icon name="like-o" />
-                <span>收藏</span>
-            </p>
-            <el-button-group>
-                <el-button class="go-buy-btn" icon="el-icon-goods">立即购买</el-button>
-                <el-button class="add-cart-btn" icon="el-icon-shopping-cart-2">加入购物车</el-button>
-            </el-button-group>
-        </div>
+      <div class="goback cart" @click="goto('/cart')">
+        <i class="el-icon-shopping-cart-full"></i>
+      </div>
+
+      <el-dropdown trigger="click">
+        <span class="el-dropdown-link">
+          <div class="goback">
+            <i class="el-icon-more"></i>
+          </div>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item icon="el-icon-bell">消息</el-dropdown-item>
+          <el-dropdown-item style="display:flex">
+            <div @click="goto('./home')">
+              <i class="el-icon-house"></i>
+              <span>首页</span>
+            </div>
+          </el-dropdown-item>
+          <el-dropdown-item icon="el-icon-search">搜索</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
     </div>
+
+    <van-swipe @change="onChange" class="banner">
+      <van-swipe-item class="sp">
+        <img :src="datails.imgsrc" alt />
+      </van-swipe-item>
+      <div class="custom-indicator" slot="indicator">{{ current + 1 }}/1</div>
+    </van-swipe>
+    <div class="title">
+      <h1>{{datails.title}}</h1>
+    </div>
+    <p class="price">
+      <span class="price-now">
+        <span class="price-icon">￥</span>
+        <span class="price-txt">{{datails.prite}}</span>
+      </span>
+      <span class="discount">7.8折</span>
+      <del>￥{{(datails.prite/0.78).toFixed()}}</del>
+      <span class="adr-send">{{datails.action1}}</span>
+    </p>
+    <p class="cns">
+      <span class="cover-txt">全新</span>
+      <span class="stock">库存1件</span>
+    </p>
+    <div class="notes-list">
+      <p v-for="item in noteslist" :key="item.name">
+        <span class="note-title">{{item.name}}</span>
+        <span class="note-txt">{{item.val}}</span>
+      </p>
+    </div>
+    <div class="footer_inner">
+      <p>
+        <i class="el-icon-takeaway-box"></i>
+        <span>店铺</span>
+      </p>
+      <p>
+        <i class="el-icon-chat-dot-square"></i>
+        <span>联系</span>
+      </p>
+      <p>
+        <van-icon name="like-o" />
+        <span>收藏</span>
+      </p>
+      <el-button-group>
+        <el-button class="go-buy-btn" icon="el-icon-goods" @click.native="buynow()">立即购买</el-button>
+        <el-button
+          class="add-cart-btn"
+          icon="el-icon-shopping-cart-2"
+          @click.native="add2cart()"
+        >加入购物车</el-button>
+      </el-button-group>
+    </div>
+  </div>
 </template>
 <script>
 export default {
@@ -127,9 +139,11 @@ export default {
           name: "上书时间",
           val: "2019-10-14"
         }
-      ]
+      ],
+      goods: {}
     };
   },
+
   methods: {
     goto(path) {
       this.$router.push(path);
@@ -139,16 +153,72 @@ export default {
     },
     onChange(index) {
       //this.current = index;
+    },
+    add2cart() {
+      let id = this.datails.id;
+      // 判断当前商品是否已经存在购物车
+      let currentGoods = this.$store.state.cart.cartlist.filter(
+        item => item.id === id
+      )[0];
+      if (currentGoods) {
+        // 存在：修改商品数量
+        let qty = currentGoods.qty + 1;
+        this.$store.commit("changeQty", { id, qty });
+      } else {
+        // 添加一个商品
+        let goods = {
+          id: this.datails._id,
+          name: this.datails.title,
+          imgurl: this.datails.imgsrc,
+          price: this.datails.prite,
+          qty: 1,
+          selected: false
+        };
+        this.goods = goods;
+        this.$store.commit("add2cart", goods);
+        this.addcart();
+      }
+    },
+    async addcart() {
+      let id = this.datails._id;
+      let { data } = await this.$axios.get("http://localhost:1906/order/gain");
+      let currentGoods = data.filter(item => item._id === id)[0];
+      console.log(currentGoods);
+
+      if (currentGoods) {
+        // 存在：修改商品数量
+        let qty = currentGoods.qty + 1;
+        await this.$axios.patch("http://localhost:1906/order/alter", {
+          id,
+          qty
+        });
+      } else {
+        let { id, name, qty, price, imgurl, selected } = this.goods;
+        console.log(id, name, qty, price, imgurl);
+        let { data } = await this.$axios.post(
+          "http://localhost:1906/order/add",
+          {
+            id,
+            name,
+            qty,
+            price,
+            imgurl,
+            selected
+          }
+        );
+      }
+    },
+    buynow() {
+      // 立即购买
+      this.add2cart();
+      this.$router.push("/cart");
+      this.addcart();
     }
   },
   async created() {
     let { id } = this.$route.params;
-    console.log(id);
-
     let { data } = await this.$axios.get(`http://127.0.0.1:1906/goods/${id}`);
-
     this.datails = data[0];
-    console.log(this.datails);
   }
 };
 </script>
@@ -232,7 +302,7 @@ export default {
   height: 0.32rem;
   margin-top: 0.133333rem;
   padding: 0 0.133333rem;
-  font-size: .213333rem;
+  font-size: 0.213333rem;
   font-weight: bold;
 }
 .price {

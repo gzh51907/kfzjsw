@@ -4,6 +4,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import common from './common';
+import cart from './cart';
 
 // 2. 使用（安装）Vuex
 Vue.use(Vuex);
@@ -15,6 +16,7 @@ const store = new Vuex.Store({
   // 只用模块化store后会影响state数据的获取
   // store.state.xxx -> store.state.cart.xxx
   modules:{
+    cart,
     common,
   }
 });

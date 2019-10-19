@@ -71,11 +71,24 @@ async function update(colName,query,data){
     client.close();
     return result;
 }
+// 排序
+async function sort(colName, query = {}, order = {}) {
+    let { db, client } = await connect();
+    let col = db.collection(colName);
 
+
+    // 查询数据库
+    let result = await col.find(query).sort(order).toArray();
+    // 关闭数据库连接
+    client.close();
+    //返回结果
+    return result;
+}
 
 module.exports={
     find,
     create,
     remove,
-    update
+    update,
+    sort
 }

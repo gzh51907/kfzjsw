@@ -62,7 +62,12 @@
             <span style="color:#999;margin-right:.3rem;">商品价格</span>
             <el-input placeholder style="width:.966667rem;margin-right:.11rem" v-model="inputval1"></el-input>一
             <el-input placeholder style="width:.966667rem;margin-left:.11rem;" v-model="inputval2"></el-input>
-            <el-button type="danger" style="margin-left:.13rem;" size="mini" @click="buttominpi">确认</el-button>
+            <el-button
+              type="danger"
+              style="margin-left:.13rem;"
+              size="mini"
+              @click="buttominpi()"
+            >确认</el-button>
           </div>
           <div>
             <h3
@@ -86,7 +91,7 @@
       <ul style="margin:0 15px;">
         <li
           v-for="item in datlere"
-          @click="gotodetails(item.id)"
+          @click="gotodetails(item._id)"
           :key="item.id"
           style="padding:10px 0;width:100%;display: flex;justify-content:space-between;"
         >
@@ -255,12 +260,19 @@ export default {
       datlere: {}
     };
   },
+  async created(){
+      let {data} = await this.$axios.get('http://127.0.0.1:1906/goods');
+      this.datlere=data
+      
+  },
   methods: {
     goOff() {
       this.$router.go(-1);
     },
     gotodetails(id) {
       this.$router.push(`/details/${id}`);
+      console.log(id);
+      
     },
     navShow(index) {
       if (index == 0) {
@@ -292,17 +304,17 @@ export default {
         if (i == 0) {
           let {
             data: { data }
-          } = await this.$axios.get("http://127.0.0.1:1907/goods/");
+          } = await this.$axios.get("http://127.0.0.1:1906/goods/");
           this.datlere = data;
         } else if (i == 1) {
           let {
             data: { data }
-          } = await this.$axios.get("http://127.0.0.1:1907/goods/asc");
+          } = await this.$axios.get("http://127.0.0.1:1906/goods/asc");
           this.datlere = data;
         } else if (i == 2) {
           let {
             data: { data }
-          } = await this.$axios.get("http://127.0.0.1:1907/goods/desc");
+          } = await this.$axios.get("http://127.0.0.1:1906/goods/desc");
           this.datlere = data;
         }
       } else {
@@ -313,12 +325,13 @@ export default {
     async buttominpi() {
       let {
         data: { data }
-      } = await this.$axios.get("http://127.0.0.1:1907/goods/pat", {
+      } = await this.$axios.get("http://127.0.0.1:1906/goods/pat", {
         params: {
           in1: this.inputval1,
           in2: this.inputval2
         }
       });
+      console.log(this.inputval1, this.inputval2);
       this.datlere = data;
       this.inputval1 = "";
       this.inputval2 = "";
@@ -326,9 +339,7 @@ export default {
     }
   },
   async created() {
-    let {
-      data: { data }
-    } = await this.$axios.get("http://127.0.0.1:1907/goods/");
+    let { data } = await this.$axios.get("http://127.0.0.1:1906/goods");
     this.datlere = data;
   }
 };

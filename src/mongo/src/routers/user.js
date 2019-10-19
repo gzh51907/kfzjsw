@@ -5,7 +5,7 @@ const {
     mongo
 } = require('../db');
 const {
-    fromatData,
+    formatData,
     token
 } = require('../utils');
 
@@ -18,7 +18,7 @@ Router.post('/reg', async (req, res) => {
         password
     } = req.body;
 
-    let result = await mongo.create('goods', [{
+    let result = await mongo.create('user', [{
         username,
         password,
         regtime: Date.now()
@@ -32,15 +32,15 @@ Router.get('/check', async (req, res) => {
         username
     } = req.query;
 
-    let result = await mongo.find('goods', {
+    let result = await mongo.find('user', {
         username
     });
     if (result.length) {
-        res.send(fromatData({
+        res.send(formatData({
             code: 0
         }));
     } else {
-        res.send(fromatData());
+        res.send(formatData());
     }
 })
 //登录
@@ -51,7 +51,7 @@ Router.get('/login', async (req, res) => {
         mdl
     } = req.query;
 
-    let result = await mongo.find('goods', {
+    let result = await mongo.find('user', {
         username,
         password
     });
@@ -62,54 +62,44 @@ Router.get('/login', async (req, res) => {
         if (mdl) {
             Authorization  = token.create(username);
         }
-        res.send(fromatData({data:Authorization}));
+        res.send(formatData({data:Authorization}));
     } else {
-        res.send(fromatData({code: 0}));
+        res.send(formatData({code: 0}));
     }
 })
 
-Router.post('/', async (req, res) => {
-    let result = await mongo.create('goods', [{
-        username: "pengyh",
-        age: 18,
-        password: "123456789"
-    }]);
-    res.send(result);
-});
+// Router.post('/', async (req, res) => {
+//     let result = await mongo.create('user', [{
+//         username: "pengyh",
+//         age: 18,
+//         password: "123456789"
+//     }]);
+//     res.send(result);
+// });
 Router.get('/', async (req, res) => {
-    let result = await mongo.find('goods', {});
+    let result = await mongo.find('user', {});
     res.send(result);
 
 });
-Router.delete('/', async (req, res) => {
-    let result = await mongo.remove('goods', {
-        username: "pengyh"
-    });
-    res.send(result);
+// Router.delete('/', async (req, res) => {
+//     let result = await mongo.remove('goods', {
+//         username: "pengyh"
+//     });
+//     res.send(result);
 
-});
-Router.patch('/', async (req, res) => {
-    let result = await mongo.update('goods', {
-        username: "peng"
-    }, {
-        $set: {
-            password: "peng1998",
-            age: "10"
-        }
-    });
-    res.send(result);
+// });
+// Router.patch('/', async (req, res) => {
+//     let result = await mongo.update('goods', {
+//         username: "peng"
+//     }, {
+//         $set: {
+//             password: "peng1998",
+//             age: "10"
+//         }
+//     });
+//     res.send(result);
 
-});
+// });
 
-Router.route('/:id')
-    .get((req, res) => {
-
-    })
-    .patch((req, res) => {
-
-    })
-    .delete((req, res) => {
-
-    })
 
 module.exports = Router;

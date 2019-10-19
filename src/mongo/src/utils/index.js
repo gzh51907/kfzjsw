@@ -1,5 +1,5 @@
 const token = require('./token');
-function fromatData({code=1,msg="success",data=[]}={}){
+function formatData({code=1,msg="success",data=[]}={}){
     if(code===0){
         msg="fail"
     }
@@ -11,6 +11,6 @@ function fromatData({code=1,msg="success",data=[]}={}){
 }
 
 module.exports = {
-    fromatData,
+    formatData,
     token
 }

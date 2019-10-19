@@ -2,7 +2,7 @@ const express = require('express');
 
 const Router = express.Router();
 
-const {fromatData,token} = require('../utils');
+const {formatData,token} = require('../utils');
 
 Router.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -20,11 +20,13 @@ Router.use((req, res, next) => {
 // 引入每个模块路由
 const goodsRouter = require('./goods');
 const userRouter = require('./user');
+const orderRouter = require('./order');
 
 Router.use(express.urlencoded({extended:true}),express.json());//推导：内部自动调用next
 
 Router.use('/goods',goodsRouter);
 Router.use('/user',userRouter);
+Router.use('/order',orderRouter);
 
 Router.get('/verify',(req,res)=>{
     let Authorization = req.get('Authorization');
@@ -32,7 +34,7 @@ Router.get('/verify',(req,res)=>{
     //校验token有效性
     let result = token.verify(Authorization);
 
-    res.send(fromatData({code:result?1:0}));
+    res.send(formatData({code:result?1:0}));
 });
 
 module.exports = Router;
