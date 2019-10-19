@@ -18,9 +18,6 @@ import Login from '../pages/Login.vue';
 import Fenlei from '../pages/shouye/Fenlei.vue';
 import Newbook from '../pages/everynewbook/newbook.vue';
 import Details from '../pages/Details.vue';
-import Management from '../pages/management.vue';
-import { log } from 'util';
-import { Store } from 'vuex';
 import store from '../store'
 
 // 3. 实例化router并配置参数
@@ -73,11 +70,6 @@ let router = new VueRouter({
             name: 'fenlei',
             path: '/fenlei',
             component: Fenlei
-        },
-        {
-            name: 'management',
-            path: '/management',
-            component: Management
         }, {
             name: 'newbook',
             path: '/newbook',

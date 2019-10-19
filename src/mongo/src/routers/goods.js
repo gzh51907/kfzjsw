@@ -1,6 +1,7 @@
 const express = require('express');
 
 const Router = express.Router();
+const { formatData, token } = require('../utils')
 
 const { mongo } = require('../db');
 
@@ -12,6 +13,26 @@ const { mongo } = require('../db');
 //     database:'yaofangwang'
 // });
 
+// 升序排序
+Router.get('/asc', async (req, res) => {
+
+    let data = await mongo.sort("goods", {}, { prite: 1 });
+    res.send(formatData({ data }));
+})
+
+// 降序排序
+Router.get('/desc', async (req, res) => {
+    let data = await mongo.sort("goods", {}, { prite: -1 });
+    res.send(formatData({ data }));
+})
+
+// 价格之间
+Router.get('/pat', async (req, res) => {
+    let { in1, in2 } = req.query
+    let data = await mongo.find("goods", { prite: { $lte: in2 * 1, $gte: in1 * 1 } })
+    res.send(formatData({ data }));
+
+})
 
 Router.route('/')
     .post((req, res) => {
@@ -22,14 +43,16 @@ Router.route('/')
         // db.query(sql).then((results)=>{
         //     res.send(results)
         // });
-        let result = await mongo.find("datlere");
+
+
+        let result = await mongo.find("goods");
         res.send(result);
     })
 Router.route('/:id')
     .get(async (req, res) => {
         let { id } = req.params;
 
-        lt = await mongo.find('datlere', { '_id': id });
+        let result = await mongo.find('goods', { 'id': id });
         res.send(result);
 
     })
@@ -53,5 +76,6 @@ Router.route('/:id')
         let result = await mongo(`delete from list where gid=${id}`);
         res.send(result);
     })
+
 
 module.exports = Router;

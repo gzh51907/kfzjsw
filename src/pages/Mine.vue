@@ -20,7 +20,7 @@
 
         <div class="right">
           <p>
-            <span>{{username}}</span>
+            <span>欢迎您 {{username}}</span>
             <span>
               帐户管理
               <i class="el-icon-arrow-right"></i>
@@ -231,7 +231,7 @@
       <footer>
         <div class="top">
           <ul>
-            <li>{{username}}</li>|
+            <li>欢迎您 {{username}}</li>|
             <li @click="logout">退出</li>|
             <li>客服留言</li>|
             <li>电脑版</li>

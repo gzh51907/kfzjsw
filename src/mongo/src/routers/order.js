@@ -4,10 +4,6 @@ const Router = express.Router();
 const {
     mongo
 } = require('../db');
-const {
-    fromatData
-} = require('../utils');
-
 
 // 注册
 // /user/reg
