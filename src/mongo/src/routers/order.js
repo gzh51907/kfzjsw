@@ -9,8 +9,6 @@ const {
 } = require('../utils');
 
 
-// 注册
-// /user/reg
 Router.post('/add', async (req, res) => {
     let {
         id,
@@ -70,16 +68,5 @@ Router.patch('/alter', async (req, res) => {
     res.send(result);
 
 });
-
-// Router.route('/:id')
-//     .get((req, res) => {
-
-//     })
-//     .patch((req, res) => {
-
-//     })
-//     .delete((req, res) => {
-
-//     })
 
 module.exports = Router;

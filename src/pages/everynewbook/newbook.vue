@@ -255,6 +255,11 @@ export default {
       datlere: {}
     };
   },
+  async created(){
+      let {data} = await this.$axios.get('http://127.0.0.1:1906/goods');
+      this.datlere=data
+      
+  },
   methods: {
     goOff() {
       this.$router.go(-1);

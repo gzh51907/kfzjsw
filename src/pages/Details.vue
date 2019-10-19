@@ -2,7 +2,9 @@
     <div class="details">
         <div class="tit">
             <div class="goback" @click="goOff"><i class="el-icon-arrow-left"></i></div>
-            <div class="goback cart" @click="goto('/cart')"><i class="el-icon-shopping-cart-full"></i></div>
+            
+                <div class="goback cart" @click="goto('/cart')"><i class="el-icon-shopping-cart-full"></i></div>
+            
             <el-dropdown trigger="click">
                 <span class="el-dropdown-link">
                     <div class="goback"><i class="el-icon-more"></i></div>
@@ -184,7 +186,6 @@ export default {
             let {data} = await this.$axios.post('http://localhost:1906/order/add',{
               id,name,qty,price,imgurl,selected
             });
-            
             }
         },
          buynow(){

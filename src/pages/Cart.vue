@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="carts">
         <header>
             <i class="el-icon-arrow-left" @click="goOff"></i>
             购物车
@@ -10,7 +10,7 @@
                     <van-checkbox v-model="item.selected" class="check" checked-color="#C21B29"></van-checkbox>
                     <img :src="item.imgurl" @click="gotodetails(item.id)"/>
                 </el-col>
-                <el-col :span="13" style="display:flex;flex-direction: column;">
+                <el-col :span="13" style="height:1.066667rem;font-size:.186667rem;display:flex;flex-direction: column;justify-content: space-between;">
                     <h4>{{item.name}}</h4>
                     <p class="price">
                         <span>￥ {{item.price}}</span>
@@ -22,7 +22,7 @@
                 </el-col>
             </el-row>
             <el-row>
-                <el-col :span="24" style="text-align:right;margin-top:.266667rem;">
+                <el-col :span="22" :offset="2" style="text-align:left;margin-top:.466667rem;">
                     <el-button type="danger" style="background:#C21B29" icon="el-icon-delete" size="mini" @click="clearCart()">清空购物车</el-button>
                 </el-col>
             </el-row>
@@ -107,6 +107,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.carts{
+  width: 100%;
+  height: 100%;
+  padding-top: 0.64rem ;
+  padding-bottom: .666667rem ;
+}
 .page-cart {
   padding: 0.2rem;
   box-sizing: border-box;
@@ -121,16 +127,23 @@ export default {
     width: 1.066667rem;
     height: 1.066667rem;
   }
+  .price{
+    span{
+      color: #c21b29;
+    }
+  }
 }
 .jiesuan {
   width: 100%;
   height: 0.666667rem;
   border-top: 0.013333rem solid #ccc;
+  background-color: #fff;
   padding: 0.133333rem;
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 99;
   display: flex;
   align-items: center;
   font-size: 0.213333rem;
@@ -157,7 +170,10 @@ header {
   text-align: center;
   line-height: 0.64rem;
   color: #fff;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
   font-size: 0.213333rem;
   i {
     font-size: 0.4rem;
