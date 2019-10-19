@@ -82,9 +82,6 @@ let router = new VueRouter({
             name: 'newbook',
             path: '/newbook',
             component: Newbook
-<<<<<<< HEAD
-
-=======
         }, {
             name: 'mine',
             path: '/mine',
@@ -101,7 +98,6 @@ let router = new VueRouter({
             meta: {
                 requiresAuth: true
             }
->>>>>>> 7db5f95d848cc903245a4c629cd51fdf63087ef6
         }
     ]
 });
